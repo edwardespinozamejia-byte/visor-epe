@@ -8,7 +8,7 @@
 <title>Gerencia de Promoción de la Inversión Privada - Municipalidad Metropolitana de Lima</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;500;600;700&display=swap">
 <style>
 /* required styles */
 
@@ -684,14 +684,14 @@ svg.leaflet-image-layer.leaflet-interactive path {
   --q1:#cde2fb; --q2:#9ec5f4; --q3:#5598e7; --q4:#256abf; --q5:#104281;
   --v1:#b3261e; --v2:#d9631e; --v3:#e09a00; --v4:#7b6a58; --v5:#a89d92; --chl:#8a3ffc;
   --ring:#ffffff; --shadow:0 1px 2px rgba(16,33,58,.06),0 4px 14px rgba(16,33,58,.06); --shadow-2:0 8px 28px rgba(16,33,58,.18);
-  --f-display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
-  --f-body:"Barlow","Segoe UI",Roboto,Arial,sans-serif;
-  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --f-display:"Arial Narrow","Archivo Narrow",Arial,sans-serif;
+  --f-body:"Arial Narrow","Archivo Narrow",Arial,sans-serif;
+  --f-mono:"Arial Narrow","Archivo Narrow",Arial,sans-serif;
   color-scheme:light;
 }
 [hidden]{display:none!important}
 html,body{height:100%}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:14px;line-height:1.45;overflow:hidden}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:14.5px;line-height:1.45;overflow:hidden}
 *{box-sizing:border-box}
 button,input,select{font:inherit;color:inherit}
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
@@ -740,36 +740,45 @@ body.editing .brand p{display:none}
 .sec.editsec,.dbody>.sec:first-child:has(.editbox){background:var(--warn-soft);border-radius:8px;padding:10px 12px;margin-top:12px}
 
 /* Indicadores */
-.kpibar{display:flex;gap:10px;padding-left:max(12px,env(safe-area-inset-left,0px));padding-right:max(12px,env(safe-area-inset-right,0px));overflow-x:auto;min-width:0}
-#kpis{display:flex;gap:10px;flex:1;min-width:0}
-.kc{display:flex;align-items:center;gap:10px;padding:10px 12px 10px 10px;flex:1 1 0;min-width:140px}
-.kc .ki{width:42px;height:42px;border-radius:10px;display:grid;place-items:center;background:var(--accent-soft);color:var(--accent);flex:none}
-.kc .ki svg{width:22px;height:22px}
+.kpibar{display:flex;gap:8px;padding-left:max(12px,env(safe-area-inset-left,0px));padding-right:max(12px,env(safe-area-inset-right,0px));overflow-x:auto;min-width:0}
+#kpis{display:flex;gap:8px;flex:1;min-width:0}
+.kc{display:flex;align-items:center;gap:8px;padding:7px 10px 7px 8px;flex:1 1 0;min-width:0}
+.kc .ki{width:34px;height:34px;border-radius:8px;display:grid;place-items:center;background:var(--accent-soft);color:var(--accent);flex:none}
+.kc .ki svg{width:18px;height:18px}
 .kc.ok .ki{background:var(--ok-soft);color:var(--ok)}
 .kc.warn .ki{background:var(--warn-soft);color:var(--warn)}
 .kc.bad .ki{background:var(--bad-soft);color:var(--bad)}
-.kc b{display:block;font-family:var(--f-display);font-size:25px;font-weight:600;line-height:1;font-variant-numeric:tabular-nums;white-space:nowrap}
-.kc b small{font-size:14px;color:var(--muted);font-weight:500}
-.kc span{display:block;font-size:12px;color:var(--muted);margin-top:3px;line-height:1.15}
+.kc b{display:block;font-family:var(--f-display);font-size:21px;font-weight:600;line-height:1;font-variant-numeric:tabular-nums;white-space:nowrap}
+.kc b small{font-size:12px;color:var(--muted);font-weight:500}
+.kc span{display:block;font-size:11.5px;color:var(--muted);margin-top:2px;line-height:1.1}
 button.kc{cursor:pointer;text-align:left;font:inherit;color:inherit}
 button.kc:hover{border-color:var(--accent)}
 button.kc[aria-pressed="true"]{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent-soft)}
-.kupd{display:flex;align-items:center;gap:10px;padding:10px 14px;flex:none}
+.kupd{display:flex;align-items:center;gap:8px;padding:7px 12px;flex:none}
 .kupd svg{width:22px;height:22px;color:var(--muted)}
 .kupd span{display:block;font-size:12px;color:var(--muted)}
 .kupd b{font-size:13.5px;font-weight:600;font-variant-numeric:tabular-nums}
-.kload{flex:none;padding:0 22px;font-size:14.5px;font-weight:600;border-radius:10px}
+.kload{flex:none;padding:0 16px;font-size:13.5px;font-weight:600;border-radius:10px}
 .kload svg{width:20px;height:20px}
 
 /* Cuerpo */
 .main{display:grid;grid-template-columns:262px minmax(0,1fr);gap:10px;min-height:0;padding-left:max(12px,env(safe-area-inset-left,0px));padding-right:max(12px,env(safe-area-inset-right,0px))}
 .view{min-height:0;min-width:0}
-#view-map{display:grid;grid-template-columns:minmax(0,1fr) 450px;gap:10px}
+#view-map{display:grid;grid-template-columns:minmax(0,1fr);gap:10px}
+#view-map.has-sel{grid-template-columns:minmax(0,1fr) 450px}
 .mapcol{display:grid;grid-template-rows:minmax(0,1fr) 248px;gap:10px;min-height:0;min-width:0}
 
 /* Filtros */
 .side{display:flex;flex-direction:column;min-height:0;overflow:hidden}
 .side-h{display:flex;align-items:center;justify-content:space-between;padding:12px 14px 6px}
+.side-rail{display:none}
+.main.side-collapsed{grid-template-columns:48px minmax(0,1fr)}
+.main.side-collapsed .side>*:not(.side-rail){display:none!important}
+.main.side-collapsed .side-rail{display:flex;flex-direction:column;align-items:center;gap:10px;width:100%;height:100%;border:0;background:none;cursor:pointer;padding:14px 0;color:var(--accent);font:inherit}
+.side-rail span{writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--f-display);font-weight:700;letter-spacing:.12em;font-size:14px;color:var(--ink)}
+.side-rail svg{width:20px;height:20px}
+.side-rail em{font-style:normal;background:var(--accent);color:var(--accent-ink);border-radius:999px;font-size:11px;font-weight:700;min-width:20px;height:20px;display:grid;place-items:center;padding:0 5px}
+.side-rail:hover{background:var(--accent-soft)}
 .side-h b{font-family:var(--f-display);font-size:17px;font-weight:700;letter-spacing:.04em}
 .linkbtn{background:none;border:0;color:var(--accent);font-weight:600;font-size:13px;cursor:pointer;padding:0}
 .ftabs{display:flex;border-bottom:1px solid var(--line);margin:0 14px}
@@ -802,6 +811,7 @@ select.sel{width:100%;padding:7px 9px;border:1px solid var(--line);border-radius
 .chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:3px 10px;font-size:12px;cursor:pointer}
 .chip[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent)}
 .chip .n{font-family:var(--f-mono);font-size:11px;color:var(--faint)}
+.fg.pick{padding-bottom:11px;border-bottom:1px solid var(--line)}
 .fapply{width:100%;margin-top:4px;padding:9px;font-size:14px;font-weight:600}
 .lsec{border-top:1px solid var(--line);margin-top:12px;padding-top:12px}
 .lsec>b{display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:8px}
@@ -1006,6 +1016,7 @@ table.ctab{width:100%;border-collapse:collapse;font-size:13px}
 table.ctab th{position:sticky;top:0;background:var(--panel-2);text-align:left;font-weight:600;padding:8px 10px;font-size:12px;border-bottom:1px solid var(--line);white-space:nowrap}
 table.ctab td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
 table.ctab td.num,table.ctab th.num{text-align:right;font-variant-numeric:tabular-nums}
+table.ctab td.mono{white-space:nowrap}
 table.ctab tr:hover td{background:var(--panel-2)}
 table.ctab .btn{padding:3px 9px;font-size:12px}
 .tbars{display:flex;height:8px;border-radius:4px;overflow:hidden;min-width:90px;background:var(--panel-2)}
@@ -1031,7 +1042,7 @@ table.ctab .btn{padding:3px 9px;font-size:12px}
 .side-close,.r-close{display:none}
 
 @media (max-width:1500px){
-  #view-map{grid-template-columns:minmax(0,1fr) 400px}
+  #view-map.has-sel{grid-template-columns:minmax(0,1fr) 400px}
   .charts{grid-template-columns:1.2fr 1fr}
   .charts .chc:nth-child(3){display:none}
   .nav button{padding:7px 10px}
@@ -1039,7 +1050,7 @@ table.ctab .btn{padding:3px 9px;font-size:12px}
 }
 @media (max-width:1280px){
   .main{grid-template-columns:236px minmax(0,1fr)}
-  #view-map{grid-template-columns:minmax(0,1fr) 360px}
+  #view-map.has-sel{grid-template-columns:minmax(0,1fr) 360px}
   .brand p{display:none}
   .gsearch{width:200px}
 }
@@ -1067,7 +1078,7 @@ table.ctab .btn{padding:3px 9px;font-size:12px}
   .kload span{display:none}
   .kload{padding:0 14px}
   .main{grid-template-columns:1fr;padding:0}
-  #view-map{grid-template-columns:1fr}
+  #view-map,#view-map.has-sel{grid-template-columns:1fr}
   .mapcol{grid-template-rows:1fr}
   .charts{display:none}
   .mapcard{border-radius:0;border-left:0;border-right:0}
@@ -1076,6 +1087,10 @@ table.ctab .btn{padding:3px 9px;font-size:12px}
   .rpanel{position:fixed;left:0;right:0;bottom:0;height:72%;z-index:910;border-radius:14px 14px 0 0;transform:translateY(105%);transition:transform .25s ease;padding-bottom:env(safe-area-inset-bottom,0px)}
   .rpanel.open{transform:none}
   .side-close,.r-close{display:inline-grid}
+  .side-hide{display:none}
+  .main.side-collapsed{grid-template-columns:1fr}
+  .main.side-collapsed .side>*:not(.side-rail){display:revert!important}
+  .main.side-collapsed .side-rail{display:none}
   .mapsearch{left:10px;right:10px;width:auto;min-width:0;top:10px}
   .map-tools{top:58px;right:10px;left:10px;justify-content:flex-end}
   .nav{gap:0}
@@ -1107,7 +1122,6 @@ table.ctab .btn{padding:3px 9px;font-size:12px}
       <button type="button" data-view="con"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/></svg><span>Contratos</span></button>
       <button type="button" id="editBtn" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg><span>Administración</span></button>
       <button type="button" class="only-mobile" id="openSide" aria-label="Filtros"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M7 12h10M10 18h4"/></svg><span>Filtros</span></button>
-      <button type="button" class="only-mobile" id="openList" aria-label="Lista"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"/></svg><span>Lista</span></button>
     </nav>
     <div class="gsearch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="q" type="search" placeholder="Filtrar por registro, dirección, contrato, empresa…" autocomplete="off" aria-label="Filtrar elementos"></div>
     <div class="editbar" id="editBar" hidden>
@@ -1127,9 +1141,11 @@ table.ctab .btn{padding:3px 9px;font-size:12px}
 
   <div class="main">
     <aside class="card side" id="side" aria-label="Filtros">
-      <div class="side-h"><b>FILTROS</b><button type="button" class="linkbtn" id="resetAll">Limpiar</button><button class="ibtn side-close" id="closeSide" type="button" aria-label="Cerrar filtros"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+      <button type="button" class="side-rail" id="sideOpen" aria-label="Mostrar filtros" title="Mostrar filtros"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M7 12h10M10 18h4"/></svg><span>FILTROS</span><em id="fCount" hidden></em><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 6 6 6-6 6"/></svg></button>
+      <div class="side-h"><b>FILTROS</b><span style="display:flex;align-items:center;gap:10px"><button type="button" class="linkbtn" id="resetAll">Limpiar</button><button type="button" class="ibtn side-hide" id="sideHide" aria-label="Ocultar filtros" title="Ocultar filtros"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 6-6 6 6 6"/></svg></button></span><button class="ibtn side-close" id="closeSide" type="button" aria-label="Cerrar filtros"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
       <div class="ftabs" role="tablist"><button type="button" role="tab" aria-selected="true" data-ft="basic">Básicos</button><button type="button" role="tab" aria-selected="false" data-ft="adv">Avanzados</button></div>
       <div class="side-b" id="pane-f">
+        <div class="fg pick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><h3>Elementos <span class="note" id="listN"></span></h3><div class="fc"><select id="elSel" class="sel" aria-label="Seleccionar elemento"></select><select id="sortBy" class="sel" aria-label="Ordenar elementos" style="margin-top:5px"><option value="id">Ordenar por registro</option><option value="dd">Ordenar por distrito</option><option value="emp">Ordenar por empresa</option><option value="ae">Ordenar por mayor área</option></select></div></div>
         <div id="fp-basic">
           <div class="fg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="11" rx="1.5"/><path d="M12 15v6M8 21h8"/></svg><h3>Tipología <button type="button" data-clear="tip" hidden>Limpiar</button></h3><div class="fc" id="f-tip"></div></div>
           <div class="fg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/></svg><h3>Característica técnica <button type="button" data-clear="car" hidden>Limpiar</button></h3><div class="fc" id="f-car"></div></div>
@@ -1207,17 +1223,8 @@ table.ctab .btn{padding:3px 9px;font-size:12px}
           <div class="card chc"><h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20V11M10 20V5M16 20v-6M21 20H3"/></svg>Característica técnica</h4><div class="chb" id="ch-car"></div></div>
         </div>
       </div>
-      <aside class="card rpanel" id="rpanel" aria-label="Ficha del elemento">
-        <div id="listView" style="display:flex;flex-direction:column;min-height:0;flex:1">
-          <div class="rlist-h"><b>Elementos</b><span class="note" id="listN"></span><select id="sortBy" aria-label="Ordenar"><option value="id">Por registro</option><option value="dd">Por distrito</option><option value="emp">Por empresa</option><option value="ae">Mayor área</option></select><button class="ibtn r-close" type="button" aria-label="Cerrar" data-rclose><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
-          <div class="rlist-pick"><select id="elSel" class="sel" aria-label="Seleccionar elemento"></select></div>
-          <div class="rlist-empty">
-            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="10" y="10" width="44" height="26" rx="3"/><path d="M32 36v16M22 52h20"/><path d="M18 20h18M18 27h12" stroke-linecap="round"/></svg>
-            <b>Selecciona un elemento</b>
-            <p>Haz clic en un punto del mapa o elígelo en la lista desplegable de arriba para ver su ficha, fotos, medidas, contrato y ubicación.</p>
-          </div>
-        </div>
-        <section id="detail" hidden></section>
+      <aside class="card rpanel" id="rpanel" aria-label="Ficha del elemento" hidden>
+        <section id="detail"></section>
       </aside>
     </div>
 
@@ -1610,7 +1617,7 @@ function sorted(){
 function renderList(){
   const a = sorted();
   $('#listN').textContent = fmtInt(a.length);
-  const lab = o => o.id+' · '+title(o.tip)+' · '+title(o.dd)+(state.sort==='ae'&&o.ae?' · '+fmt(o.ae)+' m²':'')+(state.sort==='emp'?' · '+shortEmp(o.emp):'');
+  const lab = o => o.id+' · '+title(o.tip)+' · '+title(o.dd)+(state.sort==='ae'&&o.ae?' · '+fmt(o.ae)+' m²':'')+(state.sort==='emp'?' · '+o.emp:'');
   $('#elSel').innerHTML = '<option value="">Selecciona un elemento ('+fmtInt(a.length)+')…</option>'+a.map(o=>'<option value="'+esc(o.id)+'"'+(o.id===state.sel?' selected':'')+'>'+esc(lab(o))+'</option>').join('');
 }
 $('#elSel').addEventListener('change', e=>{ if(e.target.value) select(e.target.value, {fly:true}); });
@@ -1682,8 +1689,9 @@ const ICON = {
 function select(id, opts={}){
   const o = byId.get(id); if(!o) return;
   state.sel = id; restyleMarkers(); renderDetail();
-  $('#listView').hidden = true; $('#detail').hidden = false;
-  $('#rpanel').classList.add('open');
+  const wasOpen = !$('#rpanel').hidden;
+  $('#rpanel').hidden = false; $('#view-map').classList.add('has-sel'); $('#rpanel').classList.add('open');
+  if(!wasOpen) map.invalidateSize();
   if(window.innerWidth<=860) $('#side').classList.remove('open');
   if(currentView!=='map') setView('map');
   if(opts.fly !== false){
@@ -1701,8 +1709,8 @@ function miniPopup(o){
     '<div class="mini"><div class="th">'+(f?'<img src="'+esc(f)+'" alt="">':ICON.cam)+'</div><div><b class="mono">'+esc(o.id)+'</b><span><b style="display:inline;font-size:12px">'+esc(title(o.tip))+'</b></span><span>'+esc(o.dir)+' – '+esc(title(o.dd))+'</span></div></div>').openOn(map);
 }
 function closeDetail(){
-  $('#detail').hidden = true; $('#listView').hidden = false;
-  if(window.innerWidth<=860) $('#rpanel').classList.remove('open');
+  $('#rpanel').hidden = true; $('#view-map').classList.remove('has-sel'); $('#rpanel').classList.remove('open');
+  setTimeout(()=>map.invalidateSize(), 30);
   state.sel = null; restyleMarkers(); drawNear(null); attachDrag(); map.closePopup();
   if($('#elSel')) $('#elSel').value = '';
   try{ history.replaceState(null,'',location.pathname+location.search); }catch(e){}
@@ -2166,7 +2174,7 @@ function donut(k){
     a0 += f*Math.PI*2;
   });
   return '<div class="donut"><svg viewBox="0 0 150 150" role="img" aria-label="Distribución por tipología">'+paths+
-    '<text x="75" y="76" text-anchor="middle" font-family="Barlow Condensed, Arial Narrow, sans-serif" font-size="28" font-weight="700" fill="var(--ink)">'+fmtInt(tot)+'</text><text x="75" y="94" text-anchor="middle" font-size="11" fill="var(--muted)">EPE</text></svg>'+
+    '<text x="75" y="76" text-anchor="middle" font-family="Arial Narrow, Archivo Narrow, Arial, sans-serif" font-size="28" font-weight="700" fill="var(--ink)">'+fmtInt(tot)+'</text><text x="75" y="94" text-anchor="middle" font-size="11" fill="var(--muted)">EPE</text></svg>'+
     '<ul class="dlist">'+keys.map(v=>'<li><button type="button" class="'+(isOnF(k,v)?'on':'')+'" data-dk="'+k+'" data-dv="'+esc(v)+'" title="'+esc(dashFull(k,v))+': '+c[v]+' ('+fmt(c[v]/tot*100,1)+' %)"><i style="background:'+colorOfVal(k,v)+'"></i><span>'+esc(dashLabel(k,v))+'</span><em>'+c[v]+'</em></button></li>').join('')+'</ul></div>';
 }
 function renderCharts(){
@@ -2218,7 +2226,7 @@ function renderCon(){
     rows.map((r,ri)=>{
       const tc = {}; r.list.forEach(o=>{ tc[o.tip]=(tc[o.tip]||0)+1; });
       const ae = r.list.reduce((s,o)=>s+(o.ae||0),0), RA = retrib(r.list,'ra'), RC = retrib(r.list,'rc'), ra = RA.t, rc = RC.t;
-      return '<tr><td class="num">'+(ri+1)+'</td><td class="mono">'+(r.con==='SIN CONTRATO'?'Sin contrato':esc(r.con))+'</td><td>'+esc(shortEmp(r.emp))+'</td><td>'+esc(r.fs||'—')+'</td><td class="num"><b>'+r.list.length+'</b></td>'+
+      return '<tr><td class="num">'+(ri+1)+'</td><td class="mono">'+(r.con==='SIN CONTRATO'?'Sin contrato':esc(r.con))+'</td><td>'+esc(r.emp)+'</td><td>'+esc(r.fs||'—')+'</td><td class="num"><b>'+r.list.length+'</b></td>'+
         '<td><div class="tbars" title="'+esc(Object.keys(tc).map(t=>title(t)+': '+tc[t]).join(' · '))+'">'+domains.tip.keys.filter(t=>tc[t]).map(t=>'<i style="width:'+(tc[t]/r.list.length*100)+'%;background:'+colorOfVal('tip',t)+'"></i>').join('')+'</div></td>'+
         '<td class="num">'+(ae?fmtInt(Math.round(ae))+' m²':'—')+'</td><td class="num">'+new Set(r.list.map(o=>o.dd)).size+'</td><td class="num"'+(RA.fromContract?' title="Monto según el contrato (Anexo 04)"':'')+'>'+(ra?'S/ '+fmt(ra):'—')+'</td><td class="num"'+(RC.fromContract?' title="Monto según el contrato (Anexo 04)"':'')+'>'+(rc?'S/ '+fmt(rc):'—')+'</td>'+
         '<td><button type="button" class="btn" data-con="'+esc(r.con)+'" data-emp="'+esc(r.emp)+'">Ver en el mapa</button></td></tr>';
@@ -2290,8 +2298,17 @@ $('#zLoc').onclick = ()=>{
 };
 map.on('mousemove', e=>{ $('#coords').textContent = 'Lat: '+e.latlng.lat.toFixed(6)+', Lng: '+e.latlng.lng.toFixed(6); });
 
+/* Ocultar o mostrar el panel de filtros */
+function setSide(collapsed){
+  document.querySelector('.main').classList.toggle('side-collapsed', collapsed);
+  try{ localStorage.setItem('epe.side', collapsed?'1':'0'); }catch(e){}
+  setTimeout(()=>map.invalidateSize(), 40);
+}
+$('#sideHide').onclick = ()=>setSide(true);
+$('#sideOpen').onclick = ()=>setSide(false);
+try{ if(localStorage.getItem('epe.side')==='1' && window.innerWidth>860) setSide(true); }catch(e){}
+afterFilter.push(()=>{ const n = activeChips().length; $('#fCount').hidden = !n; $('#fCount').textContent = n; });
 /* Paneles en celular */
-$('#openList').onclick = ()=>{ $('#rpanel').classList.add('open'); };
 document.addEventListener('click', e=>{ if(e.target.closest('[data-rclose]')) $('#rpanel').classList.remove('open'); });
 
 /* ---------- Edición de ubicaciones (solo con clave del administrador) ---------- */
