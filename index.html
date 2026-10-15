@@ -848,6 +848,14 @@ select.sel{width:100%;padding:7px 9px;border:1px solid var(--line);border-radius
 .mapctl{position:absolute;right:12px;bottom:48px;z-index:640;display:flex;flex-direction:column;gap:6px}
 .mapctl button{width:36px;height:36px;border-radius:8px;border:1px solid var(--line);background:var(--panel);box-shadow:var(--shadow-2);display:grid;place-items:center;cursor:pointer;color:var(--ink);padding:0}
 .mapctl button:hover{color:var(--accent)}
+.mapctl button.chtog[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.mapcol.charts-off{grid-template-rows:minmax(0,1fr)}
+.mapcol.charts-off .charts{display:none}
+.chtab{position:absolute;left:50%;transform:translateX(-50%);bottom:0;z-index:645;border:1px solid var(--line);border-bottom:0;background:var(--panel);border-radius:8px 8px 0 0;padding:3px 14px;font-size:12px;font-weight:600;color:var(--accent);cursor:pointer;display:flex;align-items:center;gap:6px;box-shadow:var(--shadow)}
+.chtab svg{width:14px;height:14px}
+.mapcol:not(.charts-off) .chtab{display:none}
+.mapcol.charts-off .legend{bottom:32px}
+.mapcol.charts-off .coords{bottom:32px}
 .mapctl svg{width:18px;height:18px}
 .mapctl .grp{display:flex;flex-direction:column;border-radius:8px;overflow:hidden;box-shadow:var(--shadow-2)}
 .mapctl .grp button{border-radius:0;box-shadow:none}
@@ -1211,14 +1219,16 @@ table.ctab .btn{padding:3px 9px;font-size:12px}
             <button type="button" id="zPeru" title="Perú" aria-label="Ver todo el Perú"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></button>
             <button type="button" id="zLoc" title="Mi ubicación" aria-label="Ir a mi ubicación"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><circle cx="12" cy="12" r="7"/></svg></button>
             <div class="grp"><button type="button" id="zIn" aria-label="Acercar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></button><button type="button" id="zOut" aria-label="Alejar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/></svg></button></div>
+            <button type="button" id="zCharts" class="chtog" title="Ocultar gráficos" aria-label="Mostrar u ocultar gráficos" aria-pressed="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20V11M10 20V5M16 20v-6M21 20H3"/></svg></button>
             <button type="button" id="zFull" title="Pantalla completa" aria-label="Pantalla completa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
           </div>
           <div class="legend" id="legend"></div>
+          <button type="button" class="chtab" id="chShow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 15 6-6 6 6"/></svg>Mostrar gráficos</button>
           <div class="coords" id="coords">Lat: —, Lng: —</div>
           <div class="notice" id="notice" hidden><span id="noticeTxt"></span><button type="button" id="noticeX" aria-label="Cerrar aviso">×</button></div>
         </div>
         <div class="charts">
-          <div class="card chc"><h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v9l7 5A9 9 0 1 1 12 3z"/><path d="M15 3.5A9 9 0 0 1 20.5 13"/></svg>Distribución por tipología</h4><div class="chb" id="ch-tip"></div></div>
+          <div class="card chc"><h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v9l7 5A9 9 0 1 1 12 3z"/><path d="M15 3.5A9 9 0 0 1 20.5 13"/></svg>Distribución por tipología<button type="button" class="linkbtn" id="chHide" style="font-size:12px">Ocultar gráficos</button></h4><div class="chb" id="ch-tip"></div></div>
           <div class="card chc"><h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h10M4 12h16M4 18h7"/></svg>EPE por distrito (top 10)</h4><div class="chb" id="ch-dd"></div></div>
           <div class="card chc"><h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20V11M10 20V5M16 20v-6M21 20H3"/></svg>Característica técnica</h4><div class="chb" id="ch-car"></div></div>
         </div>
@@ -2298,6 +2308,17 @@ $('#zLoc').onclick = ()=>{
 };
 map.on('mousemove', e=>{ $('#coords').textContent = 'Lat: '+e.latlng.lat.toFixed(6)+', Lng: '+e.latlng.lng.toFixed(6); });
 
+/* Mostrar u ocultar la franja de gráficos */
+function setCharts(on){
+  document.querySelector('.mapcol').classList.toggle('charts-off', !on);
+  $('#zCharts').setAttribute('aria-pressed', on); $('#zCharts').title = on ? 'Ocultar gráficos' : 'Mostrar gráficos';
+  try{ localStorage.setItem('epe.charts', on?'1':'0'); }catch(e){}
+  setTimeout(()=>{ map.invalidateSize(); if(on) renderCharts(); }, 40);
+}
+$('#zCharts').onclick = ()=>setCharts(document.querySelector('.mapcol').classList.contains('charts-off'));
+$('#chShow').onclick = ()=>setCharts(true);
+$('#chHide').onclick = ()=>setCharts(false);
+try{ if(localStorage.getItem('epe.charts')==='0') setCharts(false); }catch(e){}
 /* Ocultar o mostrar el panel de filtros */
 function setSide(collapsed){
   document.querySelector('.main').classList.toggle('side-collapsed', collapsed);
