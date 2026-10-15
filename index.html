@@ -766,6 +766,8 @@ button.kc[aria-pressed="true"]{border-color:var(--accent);box-shadow:0 0 0 2px v
 .view{min-height:0;min-width:0}
 #view-map{display:grid;grid-template-columns:minmax(0,1fr);gap:10px}
 #view-map.has-sel{grid-template-columns:minmax(0,1fr) 450px}
+#view-map:fullscreen{background:var(--bg);padding:10px;height:100vh;width:100vw}
+#view-map:fullscreen .rpanel{max-height:calc(100vh - 20px)}
 .mapcol{display:grid;grid-template-rows:minmax(0,1fr) 248px;gap:10px;min-height:0;min-width:0}
 
 /* Filtros */
@@ -2292,7 +2294,7 @@ $('#ly-pts').addEventListener('change', e=>{ e.target.checked ? ptLayer.addTo(ma
 /* Controles del mapa */
 $('#zIn').onclick = ()=>map.zoomIn(); $('#zOut').onclick = ()=>map.zoomOut();
 $('#zFull').onclick = ()=>{
-  const el = document.querySelector('.mapcard');
+  const el = document.getElementById('view-map');
   try{ if(document.fullscreenElement) document.exitFullscreen(); else el.requestFullscreen().catch(()=>toast('La pantalla completa no está disponible en esta vista.')); }catch(err){ toast('La pantalla completa no está disponible en esta vista.'); }
 };
 document.addEventListener('fullscreenchange', ()=>setTimeout(()=>map.invalidateSize(), 60));
