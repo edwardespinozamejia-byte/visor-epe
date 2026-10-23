@@ -1114,6 +1114,32 @@ table.ctab .btn{padding:3px 9px;font-size:12px}
   .notice{top:auto;bottom:100px;left:10px;right:58px;transform:none;max-width:none}
 }
 @media (prefers-reduced-motion:reduce){.side,.rpanel{transition:none}}
+
+/* Contratos: tablero contractual */
+:root{--ref:#b9c6dc}
+.ctiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px;margin-bottom:12px}
+.ctiles .kc{padding:10px 12px}
+.ctiles .kc.warn{border-left:4px solid var(--warn)}
+.ctiles .kc.bad{border-left:4px solid var(--bad)}
+.kc span.sub{font-size:11px;color:var(--muted);margin-top:4px}
+.cgrid2{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:12px;margin-bottom:14px}
+@media (max-width:900px){.cgrid2{grid-template-columns:1fr}}
+.mchart{width:100%;height:auto;display:block}
+.mleg{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12px;color:var(--muted);margin-top:6px}
+.mleg i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+.stp.ref{background:var(--panel-2);color:var(--muted);border:1px solid var(--line)}
+table.ctab tr.ref td{color:var(--muted)}
+table.ctab tr.sub>td{background:var(--panel-2);padding:12px}
+table.ctab tr.open>td{background:var(--accent-soft)}
+table.ctab td.acts{white-space:nowrap}
+table.ctab td.acts .btn+.btn{margin-left:4px}
+table.ctab .note{font-size:11.5px;margin:2px 0 0}
+table.sched{background:var(--panel)}
+.subgrid{display:grid;grid-template-columns:1fr;gap:12px;position:sticky;left:12px;width:min(900px,calc(100vw - 420px));min-width:300px}
+.subgrid dl.kv{grid-template-columns:120px 1fr}
+#detail table.sched{font-size:12px}
+#detail table.sched td,#detail table.sched th{padding:6px 6px}
+.stp{white-space:nowrap}
 </style>
 
 <div id="app">
@@ -1270,9 +1296,7 @@ window.CHL=[[-77.044107,-12.039081],[-77.044089,-12.039203],[-77.04534,-12.03929
 window.GOOGLE_MAPS_KEY = window.GOOGLE_MAPS_KEY || "";
 /* Huella SHA-256 de la clave para editar ubicaciones. */
 /* Totales fijados en los contratos (prevalecen sobre la suma de montos por elemento). */
-window.EPE_CONTRATOS = {
-  "027-2026-R": {ra: 237283.00, rc: 33159.00, fs: "09/10/2026", fuente: "Contrato N° 027-2026-R, Anexo 04 (montos sin IGV)"}
-};
+window.EPE_CONTRATOS = {"001-2025-R":{"emp":"PANELES NAPSA S.R.L.","fs":"22/12/2025","ra":1809080,"rc":243377,"gar":"Carta fianza","rcPag":[{"f":"","m":243377,"st":"E","d":"Pagada en bienes y servicios: proyecto \"Creación del Centro de Operaciones Zonal en Plazuela Castañeta – Cercado de Lima\" (S/ 370,000; 25 días). Crédito a favor del usufructuario: S/ 126,623."}],"cuotas":[{"f":"","m":18090.8,"st":"E","d":"Supervisión (1 %)"},{"f":"","m":726143,"st":"E","d":"Bienes y servicios (grúas y camionetas, entre otros)"},{"f":"22/12/2026","m":1064846.2,"d":"Saldo dinerario"}],"patF":["22/11/2026","22/11/2027","22/11/2028","22/11/2029"],"patN":1,"nota":"Años 2 a 5: retribución actualizada por IPC, notificada hasta el 22 de octubre y con vencimiento el 22 de noviembre. La garantía (carta fianza) debe estar vigente hasta 4 meses después del fin del contrato.","plazo":"5 años desde la suscripción","garM":180908.0,"fuente":"Contrato N° 001-2025-R (Anexo 04 / cláusulas de plazo y garantía); montos sin IGV"},"001-2026-R":{"emp":"ALAC MANAGEMENT S.A.C.","fs":"16/06/2026","ra":30756,"rc":2640,"gar":"Depósito en garantía","rcPag":[{"f":"25/05/2026","m":2640,"st":"P"}],"cuotas":[{"f":"25/05/2026","m":30756,"st":"P","d":"Pago único"}],"pat":["15/05"],"nota":"En la línea de pago de la retribución por compensación el contrato indica S/ 2,460; el cuadro del Anexo 04 indica S/ 2,640.","plazo":"5 años desde la suscripción","garM":3075.6,"fuente":"Contrato N° 001-2026-R (Anexo 04 / cláusulas de plazo y garantía); montos sin IGV"},"002-2026-R":{"emp":"CONSTRUCTORA PROBIEN S.A.C.","fs":"24/06/2026","ra":5122,"rc":2169,"gar":"Depósito en garantía","rcPag":[{"f":"05/06/2025","m":null,"st":"P","d":"Primer pago"},{"f":"28/04/2026","m":null,"st":"P","d":"Pago complementario (cancelada)"}],"cuotas":[{"f":"","m":5122,"st":"P","d":"Año 2026 cancelado"}],"pat":["16/06"],"plazo":"5 años desde la suscripción","garM":512.2,"fuente":"Contrato N° 002-2026-R (Anexo 04 / cláusulas de plazo y garantía); montos sin IGV"},"003-2026-R":{"emp":"72 DIGITAL OUTDOOR S.A.C.","fs":"01/07/2026","ra":77121,"rc":5505,"gar":"Depósito en garantía","rcPag":[{"f":"03/07/2025","m":5505,"st":"P"}],"cuotas":[{"f":"20/08/2025","m":25707,"st":"P"},{"f":"30/09/2026","m":25707},{"f":"31/12/2026","m":25707}],"pat":["30/04","31/08","31/12"],"plazo":"5 años desde la suscripción","garM":7712.1,"fuente":"Contrato N° 003-2026-R (Anexo 04 / cláusulas de plazo y garantía); montos sin IGV"},"004-2026-R":{"emp":"ESTAGAS ANCO S.A.C.","fs":"01/07/2026","ra":1096,"rc":1045,"gar":"Depósito en garantía","rcPag":[{"f":"29/04/2026","m":1045,"st":"P"}],"cuotas":[{"f":"29/04/2026","m":1096,"st":"P","d":"Pago único"}],"pat":["15/05"],"plazo":"5 años desde la suscripción","garM":109.6,"fuente":"Contrato N° 004-2026-R (Anexo 04 / cláusulas de plazo y garantía); montos sin IGV"},"005-2026-R":{"emp":"ALTAVISTA OOH S.A.C.","fs":"02/07/2026","ra":21014,"rc":8360,"gar":"Depósito en garantía","rcPag":[{"f":"12/05/2026","m":10725,"st":"P","d":"Pagó S/ 10,725; saldo a favor de S/ 2,365 imputado a la cuota 1 de la retribución anual"}],"cuotas":[{"f":"02/07/2026","m":7004.66,"d":"A la firma del contrato; saldo por pagar S/ 4,639.66 tras imputar S/ 2,365"},{"f":"31/08/2026","m":7005.32},{"f":"31/12/2026","m":7004.02}],"pat":["30/04","31/08","31/12"],"plazo":"5 años desde la suscripción","garM":2101.4,"fuente":"Contrato N° 005-2026-R (Anexo 04 / cláusulas de plazo y garantía); montos sin IGV"},"006-2026-R":{"emp":"PUBLIRED S.A.C.","fs":"03/07/2026","ra":77088,"rc":10786,"gar":"Depósito en garantía","rcPag":[{"f":"10/06/2025","m":10786,"st":"P"}],"cuotas":[{"f":"31/08/2026","m":25696},{"f":"31/12/2026","m":25696},{"f":"30/04/2027","m":25696}],"pat":["31/08","31/12","30/04"],"plazo":"5 años desde la suscripción","garM":7708.8,"fuente":"Contrato N° 006-2026-R (Anexo 04 / cláusulas de plazo y garantía); montos sin IGV"},"007-2026-R":{"emp":"BOOMERANG PANELS S.A.C.","fs":"07/07/2026","ra":21427,"rc":9684,"gar":"Depósito en garantía","rcPag":[{"f":"13/11/2025","m":null,"st":"P","d":"Cuota 1"},{"f":"15/12/2025","m":null,"st":"P","d":"Cuota 2"}],"cuotas":[{"f":"22/06/2026","m":7143,"st":"P"},{"f":"31/08/2026","m":7142},{"f":"31/12/2026","m":7142}],"pat":["30/04","31/08","31/12"],"plazo":"5 años desde la suscripción","garM":2142.7,"fuente":"Contrato N° 007-2026-R (Anexo 04 / cláusulas de plazo y garantía); montos sin IGV"},"008-2026-R":{"emp":"GRUPO TORVISCO S.A.","fs":"08/07/2026","ra":8778,"rc":1284,"gar":"Depósito en garantía","rcPag":[{"f":"01/09/2025","m":1284,"st":"P"}],"cuotas":[{"f":"01/09/2025","m":8778,"st":"P","d":"Pago único"}],"pat":["16/06"],"plazo":"5 años desde la suscripción","garM":877.8,"fuente":"Contrato N° 008-2026-R (Anexo 04 / cláusulas de plazo y garantía); montos sin IGV"},"009-2026-R":{"emp":"SGG CHANEL S.A.C.","fs":"09/07/2026","ra":30756,"rc":1798,"gar":"Depósito en garantía","rcPag":[{"f":"26/06/2025","m":1798,"st":"P"}],"cuotas":[{"f":"03/10/2025","m":13181,"st":"P"},{"f":"31/08/2026","m":13181},{"f":"31/12/2026","m":4394}],"pat":["30/04","31/08","31/12"],"nota":"El contrato consigna la razón social \"SGG CHANNEL S.A.C.\".","plazo":"5 años desde la suscripción","garM":3075.6,"fuente":"Contrato N° 009-2026-R (Anexo 04 / cláusulas de plazo y garantía); montos sin IGV"},"010-2026-R":{"emp":"REGBA DIGITAL E.I.R.L.","fs":"10/07/2026","ra":30756,"rc":2568,"gar":"Depósito en garantía","rcPag":[{"f":"23/09/2025","m":2568,"st":"P"}],"cuotas":[{"f":"31/12/2026","m":10252},{"f":"31/03/2027","m":10252},{"f":"30/06/2027","m":10252}],"pat":["31/12","31/03","30/06"],"plazo":"5 años desde la suscripción","garM":3075.6,"fuente":"Contrato N° 010-2026-R (Anexo 04 / cláusulas de plazo y garantía); montos sin IGV"},"012-2026-R":{"emp":"FISICOS Y GRAFICOS PUBLICITARIOS S.A.C.","fs":"14/07/2026","ra":339867,"rc":28050,"gar":"Depósito en garantía","rcPag":[{"f":"16/06/2026","m":28050,"st":"P"}],"cuotas":[{"f":"31/08/2026","m":113289},{"f":"31/10/2026","m":113289},{"f":"31/12/2026","m":113289}],"pat":["31/08","31/10","31/12"],"plazo":"5 años desde la suscripción","garM":33986.7,"fuente":"Contrato N° 012-2026-R (Anexo 04 / cláusulas de plazo y garantía); montos sin IGV"},"013-2026-R":{"emp":"ABRAHAN DIONICIO SANDOVAL PRADO","fs":"16/07/2026","ra":9240,"rc":3050,"gar":"Depósito en garantía","rcPag":[{"f":"08/08/2025","m":3050,"st":"P"}],"cuotas":[{"f":"26/06/2026","m":9240,"st":"P","d":"Pago único"}],"pat":["16/06"],"nota":"Persona natural. La retribución figura en el Anexo 03.","plazo":"5 años desde la suscripción","garM":924.0,"fuente":"Contrato N° 013-2026-R (Anexo 04 / cláusulas de plazo y garantía); montos sin IGV"},"014-2026-R":{"emp":"IMPACTO MEDIA S.A.C.","fs":"17/07/2026","ra":37356,"rc":2922,"gar":"Depósito en garantía","rcPag":[{"f":"19/06/2025","m":1798,"st":"P"},{"f":"05/12/2025","m":1124,"st":"P"}],"cuotas":[{"f":"31/07/2026","m":12452},{"f":"30/09/2026","m":12452},{"f":"31/12/2026","m":12452}],"pat":["31/07","30/09","31/12"],"nota":"El contrato consigna la razón social \"IMPACTO MEDIA PERÚ S.A.C.\".","plazo":"5 años desde la suscripción","garM":3735.6,"fuente":"Contrato N° 014-2026-R (Anexo 04 / cláusulas de plazo y garantía); montos sin IGV"},"016-2026-R":{"emp":"BRASIL PUBLICIDAD EXTERIOR S.A.C.","fs":"20/07/2026","ra":61644,"rc":3933,"gar":"Depósito en garantía","rcPag":[{"f":"","m":3933,"st":"P","d":"Cancelada; saldo a favor de S/ 786 imputado a la retribución anual"}],"cuotas":[{"f":"30/09/2026","m":20548,"d":"Por pagar S/ 19,762 tras imputar S/ 786"},{"f":"30/11/2026","m":20548},{"f":"31/01/2027","m":20548}],"pat":["30/09","30/11","31/01"],"plazo":"5 años desde la suscripción","garM":6164.4,"fuente":"Contrato N° 016-2026-R (Anexo 04 / cláusulas de plazo y garantía); montos sin IGV"},"021-2026-R":{"emp":"ILUMINITY S.A.C.","fs":"28/08/2026","ra":390456,"rc":15264,"gar":"Depósito en garantía","rcPag":[{"f":"29/05/2025","m":17061,"st":"P","d":"Pagó S/ 17,061; saldo a favor de S/ 1,797 imputado a la cuota 1"}],"cuotas":[{"f":"31/08/2026","m":130152,"d":"Por pagar S/ 128,355 tras imputar S/ 1,797"},{"f":"31/12/2026","m":130152},{"f":"30/04/2027","m":130152}],"pat":["31/08","31/12","30/04"],"plazo":"5 años desde la suscripción","garM":39045.6,"fuente":"Contrato N° 021-2026-R (Anexo 04 / cláusulas de plazo y garantía); montos sin IGV"},"024-2026-R":{"emp":"PUBLICIDAD CAPI S.A.C.","fs":"07/09/2026","ra":144408,"rc":12760,"gar":"Depósito en garantía","rcPag":[{"f":"22/07/2026","m":12760,"st":"P"}],"cuotas":[{"f":"07/09/2026","m":48136},{"f":"31/10/2026","m":48136},{"f":"31/12/2026","m":48136}],"pat":["31/08","31/10","31/12"],"plazo":"5 años desde la suscripción","garM":14440.8,"fuente":"Contrato N° 024-2026-R (Anexo 04 / cláusulas de plazo y garantía); montos sin IGV"},"027-2026-R":{"emp":"LA COBERTURA EXTERIOR S.A.C.","fs":"09/10/2026","ra":237283,"rc":33159,"gar":"Depósito en garantía","rcPag":[{"f":"17/09/2026","m":11053,"st":"P","d":"Cuota 1"},{"f":"30/11/2026","m":11053,"d":"Cuota 2"},{"f":"30/12/2026","m":11053,"d":"Cuota 3"}],"cuotas":[{"f":"30/11/2026","m":79094.33},{"f":"31/12/2026","m":79094.33},{"f":"31/03/2027","m":79094.34}],"pat":["30/11","31/12","31/03"],"plazo":"5 años desde la suscripción","garM":23728.3,"fuente":"Contrato N° 027-2026-R (Anexo 04 / cláusulas de plazo y garantía); montos sin IGV"}};
 window.EDIT_PIN_SHA256 = "2cd52d874bc8458e88f2553803a42f111ea724b5722635015b35dee0fa14d6c6";
 </script>
 <script>
@@ -1791,7 +1815,7 @@ function renderDetail(){
       (extra.length? '<div class="sec"><h4>Otros atributos</h4>'+kv(extra)+'</div>':'');
   } else if(dTab==='con'){
     body = '<div class="sec"><h4>'+SVG.doc+'Registro y contrato</h4>'+kv([[o.sr?'N° de expediente':'Código de registro', '<span class="mono">'+esc(o.id)+'</span>'], ['Estado', o.sr?'Sin código de registro'+(o.con!=='SIN CONTRATO'?' (contrato '+esc(o.con)+' suscrito)':''):'Con registro'], ['Numeración', esc(o.num)], ['Reordenamiento', esc(o.reo)], ['Contrato', o.con==='SIN CONTRATO'?'Sin contrato':'<span class="mono">'+esc(o.con)+'</span>'], ['Fecha de suscripción', esc(o.fs)], ['Fecha de emisión', esc(o.fe)], ['Titular', esc(o.emp)], ['RUC', o.ruc?'<span class="mono">'+esc(o.ruc)+'</span>':''], ['Retribución anual', o.ra!=null?'S/ '+fmt(o.ra):''], ['Retribución por compensación', o.rc!=null?'S/ '+fmt(o.rc):'']])+'</div>'+
-      (CONTRATOS[o.con]?'<div class="sec"><h4>'+SVG.doc+'Totales del contrato '+esc(o.con)+'</h4>'+kv([['Elementos del contrato', String(DATA.filter(x=>x.con===o.con).length)], ['Retribución anual total', 'S/ '+fmt(CONTRATOS[o.con].ra)], ['Retribución por compensación total', 'S/ '+fmt(CONTRATOS[o.con].rc)], ['Fuente', esc(CONTRATOS[o.con].fuente)]])+'<p class="note">Los montos por elemento son los del Anexo 02. La suma de esos montos difiere en unos soles del total del contrato por redondeo.</p></div>':'')+
+      (schedule(o.con)?(()=>{ const S = schedule(o.con), c = S.c, nx = nextDue(S), cs = conStatus(S); return '<div class="sec"><h4>'+SVG.doc+'Datos del contrato '+esc(o.con)+'</h4>'+kv([['Estado de pagos', pill(cs.c, cs.l)], ['Plazo', esc(c.plazo)], ['Vigencia', esc(c.fs)+' – '+dStr(S.fin)], ['Elementos del contrato', String(DATA.filter(x=>x.con===o.con).length)], ['Retribución anual', 'S/ '+fmt(c.ra)], ['Retribución por compensación', 'S/ '+fmt(c.rc)], ['Garantía de fiel cumplimiento', esc(c.gar)+' · S/ '+fmt(c.garM)], ['Próximo vencimiento', nx?dStr(nx.f)+' · S/ '+fmt(nx.m)+(nx.st==='R'?' (ref.)':''):'—']])+'</div><div class="sec"><h4>'+SVG.doc+'Cronograma del primer año</h4>'+schedTable(S,{short:true})+(c.nota?'<p class="note">'+esc(c.nota)+'</p>':'')+'<p class="note">Fuente: '+esc(c.fuente)+'. El cronograma completo (años 2 a 5) está en la vista Contratos.</p></div>'; })():(o.con!=='SIN CONTRATO'?'<div class="sec"><p class="note">El PDF del contrato '+esc(o.con)+' aún no se ha cargado; la retribución, la garantía y el cronograma aparecerán cuando se incorpore.</p></div>':''))+
       (o.con!=='SIN CONTRATO'?'<div class="sec"><button type="button" class="btn" data-con="'+esc(o.con)+'" data-emp="'+esc(o.emp)+'">Ver todos los elementos de este contrato</button></div>':'');
   } else {
     body = editSection(o)+
@@ -2227,23 +2251,134 @@ function renderAna(){
       card('Material', hbars('mat', 8))+
     '</div>';
 }
+/* ---------- Datos contractuales: cronograma y estado de pagos ---------- */
+const pDate = s => { const m = /^(\d{2})\/(\d{2})\/(\d{4})$/.exec(s||''); return m ? new Date(+m[3], +m[2]-1, +m[1]) : null; };
+const dStr = d => d ? String(d.getDate()).padStart(2,'0')+'/'+String(d.getMonth()+1).padStart(2,'0')+'/'+d.getFullYear() : 'Sin fecha';
+const TODAY = (()=>{ const t = new Date(); return new Date(t.getFullYear(), t.getMonth(), t.getDate()); })();
+const MES = ['ene','feb','mar','abr','may','jun','jul','ago','set','oct','nov','dic'];
+const ST = {
+  P:{l:'Pagada (según contrato)', s:'Pagada', c:'ok'}, E:{l:'En bienes o servicios', s:'En especie', c:'ok'},
+  V:{l:'Vencida – verificar pago', s:'Verificar pago', c:'bad'}, F:{l:'Por vencer', s:'Por vencer', c:'warn'}, R:{l:'Referencial (se actualiza por IPC)', s:'Referencial', c:'ref'}, N:{l:'Sin fecha en el contrato', s:'Sin fecha', c:'ref'}
+};
+const SCHED = {};
+function schedule(con){
+  if(SCHED[con]) return SCHED[con];
+  const c = CONTRATOS[con]; if(!c || !c.cuotas) return null;
+  const out = [];
+  const st = (x, ref) => { if(x.st) return x.st; const d = pDate(x.f); if(!d) return 'N'; if(ref) return d < TODAY ? 'V' : 'R'; return d < TODAY ? 'V' : 'F'; };
+  (c.rcPag||[]).forEach((x,i)=>out.push({t:'RC', a:1, n:i+1, f:pDate(x.f), m:x.m, d:x.d||'', st:st(x)}));
+  c.cuotas.forEach((x,i)=>out.push({t:'RA', a:1, n:i+1, f:pDate(x.f), m:x.m, d:x.d||'', st:st(x)}));
+  if(c.patF){
+    c.patF.forEach((f,i)=>{ const x = {f}; out.push({t:'RA', a:i+2, n:1, f:pDate(f), m:c.ra, d:'', st:st(x, true)}); });
+  } else if(c.pat){
+    let cur = pDate(c.fs);
+    c.cuotas.forEach(x=>{ const d = pDate(x.f); if(d && d > cur) cur = d; });
+    const per = Math.round(c.ra / c.pat.length * 100) / 100;
+    for(let a=2; a<=5; a++) c.pat.forEach((p,i)=>{
+      const [dd, mm] = p.split('/').map(Number);
+      let d = new Date(cur.getFullYear(), mm-1, dd); if(d <= cur) d = new Date(cur.getFullYear()+1, mm-1, dd);
+      cur = d; out.push({t:'RA', a, n:i+1, f:d, m:per, d:'', st:st({f:dStr(d)}, true)});
+    });
+  }
+  const fs = pDate(c.fs), fin = fs ? new Date(fs.getFullYear()+5, fs.getMonth(), fs.getDate()) : null;
+  return SCHED[con] = {c, items:out, fin};
+}
+function conStatus(s){
+  if(!s) return {c:'ref', l:'Contrato no cargado'};
+  const v = s.items.filter(x=>x.st==='V').length;
+  if(v) return {c:'bad', l:v+(v>1?' cuotas vencidas':' cuota vencida')+' – verificar'};
+  const nx = s.items.find(x=>x.st==='F' && x.f);
+  if(nx && (nx.f - TODAY) / 864e5 <= 30) return {c:'warn', l:'Vence en '+Math.round((nx.f-TODAY)/864e5)+' días'};
+  return {c:'ok', l:'Sin cuotas vencidas'};
+}
+const nextDue = s => s ? s.items.filter(x=>(x.st==='F'||x.st==='R') && x.f && x.f >= TODAY).sort((a,b)=>a.f-b.f)[0] : null;
+const pill = (cls, txt) => '<span class="stp '+cls+'">'+esc(txt)+'</span>';
+const conLabel = x => (x.t==='RC' ? 'Retrib. por compensación' : 'Retrib. anual, año '+x.a)+' · cuota '+x.n;
+function schedTable(s, opts){
+  opts = opts || {};
+  const items = s.items.filter(x=>opts.all || x.a===1);
+  return '<table class="ctab sched"><thead><tr><th>Concepto</th><th>Vencimiento</th><th class="num">Monto S/</th><th>Estado</th></tr></thead><tbody>'+
+    items.map(x=>'<tr'+(x.st==='R'?' class="ref"':'')+'><td>'+esc(conLabel(x))+(x.d?'<div class="note">'+esc(x.d)+'</div>':'')+'</td><td class="mono">'+dStr(x.f)+'</td><td class="num">'+(x.m!=null?fmt(x.m):'—')+'</td><td>'+pill(ST[x.st].c, opts.short?ST[x.st].s:ST[x.st].l)+'</td></tr>').join('')+
+    '</tbody></table>';
+}
+function monthChart(sList){
+  // Cobros por mes desde la suscripción del primer contrato hasta 12 meses después de hoy.
+  const all = [];
+  sList.forEach(s=>s.items.forEach(x=>{ if(x.f && x.m) all.push(x); }));
+  if(!all.length) return '<p class="note">Sin cuotas con fecha.</p>';
+  const start = new Date(TODAY.getFullYear(), TODAY.getMonth()-6, 1), end = new Date(TODAY.getFullYear(), TODAY.getMonth()+12, 1);
+  const months = []; for(let d = new Date(start); d < end; d = new Date(d.getFullYear(), d.getMonth()+1, 1)) months.push(d);
+  const keyOf = d => d.getFullYear()*12 + d.getMonth();
+  const order = ['P','E','V','F','R'], col = {P:'var(--ok)', E:'var(--ok)', V:'var(--bad)', F:'var(--warn)', R:'var(--ref)'};
+  const agg = {}; all.forEach(x=>{ const k = keyOf(x.f); (agg[k] = agg[k] || {})[x.st] = ((agg[k]||{})[x.st]||0) + x.m; });
+  const tot = k => order.reduce((s,o)=>s+((agg[k]||{})[o]||0),0);
+  const max = Math.max(1, ...months.map(d=>tot(keyOf(d))));
+  const W = 640, H = 210, pl = 46, pb = 34, pt = 10, bw = (W-pl-8)/months.length;
+  const y = v => pt + (H-pt-pb) * (1 - v/max);
+  const step = max > 1e6 ? 5e5 : max > 4e5 ? 1e5 : max > 1e5 ? 5e4 : 1e4;
+  let g = '';
+  for(let v=0; v<=max; v+=step) g += '<line x1="'+pl+'" x2="'+W+'" y1="'+y(v)+'" y2="'+y(v)+'" stroke="var(--line)"/><text x="'+(pl-6)+'" y="'+(y(v)+4)+'" text-anchor="end" font-size="10" fill="var(--muted)">'+(v>=1e6?(v/1e6).toLocaleString('es-PE')+' M':(v/1e3)+' mil')+'</text>';
+  months.forEach((d,i)=>{
+    const k = keyOf(d), x = pl + i*bw + 2; let acc = 0;
+    order.forEach(o=>{ const v = (agg[k]||{})[o]; if(!v) return;
+      g += '<rect x="'+x+'" width="'+(bw-4)+'" y="'+y(acc+v)+'" height="'+(y(acc)-y(acc+v))+'" fill="'+col[o]+'"><title>'+MES[d.getMonth()]+' '+d.getFullYear()+' · '+ST[o].l+': S/ '+fmt(v)+'</title></rect>'; acc += v; });
+    if(i%2===0 || months.length<14) g += '<text x="'+(x+(bw-4)/2)+'" y="'+(H-pb+14)+'" text-anchor="middle" font-size="10" fill="var(--muted)">'+MES[d.getMonth()]+'</text>';
+    if(d.getMonth()===0 || i===0) g += '<text x="'+(x+(bw-4)/2)+'" y="'+(H-pb+27)+'" text-anchor="middle" font-size="10" font-weight="700" fill="var(--ink)">'+d.getFullYear()+'</text>';
+  });
+  const tx = pl + ((TODAY.getFullYear()*12+TODAY.getMonth()) - keyOf(start) + TODAY.getDate()/31) * bw;
+  g += '<line x1="'+tx+'" x2="'+tx+'" y1="'+pt+'" y2="'+(H-pb)+'" stroke="var(--ink)" stroke-dasharray="3 3"/><text x="'+(tx+4)+'" y="'+(pt+9)+'" font-size="10" fill="var(--ink)">hoy</text>';
+  return '<svg class="mchart" viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Cuotas por mes">'+g+'</svg>'+
+    '<div class="mleg">'+[['P','Pagada o en especie'],['V','Vencida – verificar'],['F','Por vencer (año 1)'],['R','Años 2 a 5 (referencial)']].map(a=>'<span><i style="background:'+col[a[0]]+'"></i>'+a[1]+'</span>').join('')+'</div>';
+}
+const conOpen = new Set();
 function renderCon(){
   if(currentView!=='con') return;
   const g = {};
   filtered.forEach(o=>{ const k = o.con+'|'+o.emp; (g[k] = g[k] || {con:o.con, emp:o.emp, fs:o.fs, list:[]}).list.push(o); });
   const ckey = c => { const m = String(c).match(/(\d+)-(\d{4})/); return m ? (+m[2])*10000 + (+m[1]) : 99999999; };
   const rows = Object.values(g).sort((a,b)=>ckey(a.con)-ckey(b.con) || a.emp.localeCompare(b.emp,'es'));
-  $('#conBody').innerHTML = '<div class="vh"><h2>Contratos</h2><span class="note">'+rows.length+' contratos · '+fmtInt(filtered.length)+' elementos con los filtros actuales</span></div>'+chipsHTML()+
-    '<div style="overflow-x:auto"><table class="ctab"><thead><tr><th>N°</th><th>Contrato</th><th>Empresa</th><th>Suscripción</th><th class="num">EPE</th><th>Tipologías</th><th class="num">Área de exhibición</th><th class="num">Distritos</th><th class="num">Retribución anual</th><th class="num">Retribución por compensación</th><th></th></tr></thead><tbody>'+
+  rows.forEach(r=>{ r.s = schedule(r.con); });
+  const withData = rows.filter(r=>r.s), sList = withData.map(r=>r.s);
+  const sum = (f) => sList.reduce((t,s)=>t+f(s),0);
+  const ra = sum(s=>s.c.ra), rc = sum(s=>s.c.rc), gar = sum(s=>s.c.garM);
+  const items = []; withData.forEach(r=>r.s.items.forEach(x=>items.push(Object.assign({con:r.con, emp:r.emp}, x))));
+  const venc = items.filter(x=>x.st==='V'), d90 = new Date(TODAY.getTime()+90*864e5);
+  const prox = items.filter(x=>x.st==='F' && x.f >= TODAY && x.f <= d90);
+  const sm = a => a.reduce((t,x)=>t+(x.m||0),0);
+  const tile = (cls, val, lab, sub) => '<div class="card kc '+cls+'"><div><b>'+val+'</b><span>'+lab+'</span>'+(sub?'<span class="sub">'+sub+'</span>':'')+'</div></div>';
+  const VENC = venc.length ? '<h5 style="margin-top:16px">Vencidas – verificar pago</h5>'+'<table class="ctab"><tbody>'+venc.sort((a,b)=>a.f-b.f).map(x=>'<tr><td class="mono">'+dStr(x.f)+'</td><td><span class="mono">'+esc(x.con)+'</span><div class="note">'+esc(shortEmp(x.emp))+'</div></td><td>'+esc(conLabel(x))+'</td><td class="num">'+fmt(x.m)+'</td></tr>').join('')+'</tbody></table>' : '';
+  const upcoming = items.filter(x=>x.f && x.f >= TODAY && (x.st==='F'||x.st==='R')).sort((a,b)=>a.f-b.f).slice(0,8);
+  $('#conBody').innerHTML = '<div class="vh"><h2>Contratos</h2><span class="note">'+rows.length+' contratos · '+withData.length+' con datos contractuales cargados · estado al '+dStr(TODAY)+'</span></div>'+chipsHTML()+
+    '<div class="ctiles">'+
+      tile('', withData.length+' <small>/ '+rows.length+'</small>', 'Contratos con datos', rows.length-withData.length ? (rows.length-withData.length)+' sin PDF cargado' : 'Todos cargados')+
+      tile('', 'S/ '+fmtInt(Math.round(ra)), 'Retribución anual (año 1)', 'Sin IGV')+
+      tile('', 'S/ '+fmtInt(Math.round(rc)), 'Retribución por compensación', 'Sin IGV')+
+      tile('', 'S/ '+fmtInt(Math.round(gar)), 'Garantías de fiel cumplimiento', '10 % de la retribución anual')+
+      tile('warn', 'S/ '+fmtInt(Math.round(sm(prox))), 'Por vencer en 90 días', prox.length+' cuotas')+
+      tile('bad', 'S/ '+fmtInt(Math.round(sm(venc))), 'Vencidas – verificar pago', venc.length+' cuotas sin constancia en el contrato')+
+    '</div>'+
+    '<div class="cgrid2"><div class="acard"><h5>Cuotas por mes</h5>'+monthChart(sList)+VENC+'</div>'+
+    '<div class="acard"><h5>Próximos vencimientos</h5>'+(upcoming.length?'<table class="ctab"><thead><tr><th>Fecha</th><th>Contrato</th><th>Concepto</th><th class="num">S/</th></tr></thead><tbody>'+
+      upcoming.map(x=>'<tr><td class="mono">'+dStr(x.f)+'</td><td><span class="mono">'+esc(x.con)+'</span><div class="note">'+esc(shortEmp(x.emp))+'</div></td><td>'+esc(conLabel(x))+(x.st==='R'?' <span class="stp ref">ref.</span>':'')+'</td><td class="num">'+fmt(x.m)+'</td></tr>').join('')+'</tbody></table>':'<p class="note">Sin vencimientos próximos.</p>')+
+      ''+    '</div></div>'+
+    '<div style="overflow-x:auto"><table class="ctab clist"><thead><tr><th>N°</th><th>Contrato</th><th>Empresa</th><th>Suscripción</th><th>Fin del plazo</th><th class="num">EPE</th><th>Tipologías</th><th class="num">Retribución anual</th><th class="num">Retribución por compensación</th><th>Garantía</th><th>Próximo vencimiento</th><th>Estado de pagos</th><th></th></tr></thead><tbody>'+
     rows.map((r,ri)=>{
       const tc = {}; r.list.forEach(o=>{ tc[o.tip]=(tc[o.tip]||0)+1; });
-      const ae = r.list.reduce((s,o)=>s+(o.ae||0),0), RA = retrib(r.list,'ra'), RC = retrib(r.list,'rc'), ra = RA.t, rc = RC.t;
-      return '<tr><td class="num">'+(ri+1)+'</td><td class="mono">'+(r.con==='SIN CONTRATO'?'Sin contrato':esc(r.con))+'</td><td>'+esc(r.emp)+'</td><td>'+esc(r.fs||'—')+'</td><td class="num"><b>'+r.list.length+'</b></td>'+
+      const s = r.s, RA = retrib(r.list,'ra'), RC = retrib(r.list,'rc'), nx = nextDue(s), cs = conStatus(s), open = conOpen.has(r.con), full = r.list.length === DATA.filter(o=>o.con===r.con).length;
+      return '<tr'+(open?' class="open"':'')+'><td class="num">'+(ri+1)+'</td><td class="mono">'+(r.con==='SIN CONTRATO'?'Sin contrato':esc(r.con))+'</td><td>'+esc(r.emp)+'</td><td class="mono">'+esc(r.fs||'—')+'</td><td class="mono">'+(s?dStr(s.fin):'—')+'</td><td class="num"><b>'+r.list.length+'</b>'+(full?'':' <small class="note">de '+DATA.filter(o=>o.con===r.con).length+'</small>')+'</td>'+
         '<td><div class="tbars" title="'+esc(Object.keys(tc).map(t=>title(t)+': '+tc[t]).join(' · '))+'">'+domains.tip.keys.filter(t=>tc[t]).map(t=>'<i style="width:'+(tc[t]/r.list.length*100)+'%;background:'+colorOfVal('tip',t)+'"></i>').join('')+'</div></td>'+
-        '<td class="num">'+(ae?fmtInt(Math.round(ae))+' m²':'—')+'</td><td class="num">'+new Set(r.list.map(o=>o.dd)).size+'</td><td class="num"'+(RA.fromContract?' title="Monto según el contrato (Anexo 04)"':'')+'>'+(ra?'S/ '+fmt(ra):'—')+'</td><td class="num"'+(RC.fromContract?' title="Monto según el contrato (Anexo 04)"':'')+'>'+(rc?'S/ '+fmt(rc):'—')+'</td>'+
-        '<td><button type="button" class="btn" data-con="'+esc(r.con)+'" data-emp="'+esc(r.emp)+'">Ver en el mapa</button></td></tr>';
+        '<td class="num">'+(s?'S/ '+fmt(s.c.ra):(RA.t?'S/ '+fmt(RA.t):'—'))+'</td><td class="num">'+(s?'S/ '+fmt(s.c.rc):(RC.t?'S/ '+fmt(RC.t):'—'))+'</td>'+
+        '<td>'+(s?esc(s.c.gar)+'<div class="note">S/ '+fmt(s.c.garM)+'</div>':'—')+'</td>'+
+        '<td>'+(nx?'<span class="mono">'+dStr(nx.f)+'</span><div class="note">S/ '+fmt(nx.m)+(nx.st==='R'?' (ref.)':'')+'</div>':'—')+'</td>'+
+        '<td>'+pill(cs.c, cs.l)+'</td>'+
+        '<td class="acts">'+(s?'<button type="button" class="btn" data-cop="'+esc(r.con)+'" aria-expanded="'+open+'">Cronograma</button>':'')+'<button type="button" class="btn" data-con="'+esc(r.con)+'" data-emp="'+esc(r.emp)+'">Ver en el mapa</button></td></tr>'+
+        (open&&s?'<tr class="sub"><td colspan="13"><div class="subgrid"><div><dl class="kv"><dt>Plazo</dt><dd>'+esc(s.c.plazo)+' ('+esc(s.c.fs)+' – '+dStr(s.fin)+')</dd><dt>Garantía</dt><dd>'+esc(s.c.gar)+' por S/ '+fmt(s.c.garM)+' (10 % de la retribución anual)</dd>'+(s.c.nota?'<dt>Observación</dt><dd>'+esc(s.c.nota)+'</dd>':'')+'<dt>Fuente</dt><dd>'+esc(s.c.fuente)+'</dd></dl><p class="note">“Pagada” solo cuando el propio contrato deja constancia del pago. Las cuotas vencidas sin esa constancia deben verificarse con Tesorería. Los años 2 a 5 muestran el monto base, que se actualiza por IPC.</p></div><div>'+schedTable(s,{all:true})+'</div></div></td></tr>':'');
     }).join('')+'</tbody></table></div>';
 }
+document.addEventListener('click', e=>{
+  const b = e.target.closest('[data-cop]'); if(!b) return;
+  const c = b.dataset.cop; conOpen.has(c) ? conOpen.delete(c) : conOpen.add(c); renderCon();
+});
 document.addEventListener('click', e=>{
   const b = e.target.closest('[data-dk]');
   if(b && !b.closest('.leaflet-container')){ toggleFilter(b.dataset.dk, b.dataset.dv); return; }
