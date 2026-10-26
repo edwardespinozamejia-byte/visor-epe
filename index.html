@@ -1234,6 +1234,51 @@ figure.hero .zoomb svg{width:16px;height:16px}
 .minilinks{display:flex!important;gap:10px;margin-top:4px}
 .minilinks a{display:inline-flex;align-items:center;gap:3px;font-size:11.5px;font-weight:600;color:var(--accent);text-decoration:none}
 .minilinks svg{width:14px;height:14px}
+
+/* Distancias mínimas (Ord. 2791) */
+.sw-ord{width:18px;height:0;border-top:3px solid #d63a2c;position:relative}
+.sw-ord::before,.sw-ord::after{content:"";position:absolute;top:-6px;width:7px;height:7px;border-radius:50%;background:#d63a2c}
+.sw-ord::before{left:-3px}.sw-ord::after{right:-3px}
+.near-tools{flex-wrap:wrap;row-gap:6px}
+.near-tools .ordbtn{font-weight:700}
+.near-tools .ordbtn[aria-pressed="true"]{background:#7a1f16;border-color:#7a1f16;color:#fff}
+.ordbox{border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--panel)}
+.ordh{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.ordh b{font-size:13px}
+.ordrules{display:flex;flex-wrap:wrap;gap:5px;align-items:center;font-size:12px;margin-bottom:8px}
+.ordrules>span{width:100%;color:var(--muted)}
+.ordrules b{font-weight:500;background:var(--panel-2);border:1px solid var(--line);border-radius:999px;padding:2px 9px}
+.ordrules b em{font-style:normal;font-weight:700;color:#7a1f16;margin-left:3px}
+.ordrules b.na em{color:var(--muted);font-weight:500}
+ul.ordl li{align-items:flex-start;gap:8px}
+ul.ordl li>span:nth-child(2){flex:1;min-width:0}
+ul.ordl small{display:block;color:var(--muted);font-size:11.5px;margin-top:2px}
+ul.ordl .ordr{display:flex;flex-direction:column;align-items:flex-end;gap:3px;flex:none}
+ul.ordl li.o-bad{background:var(--bad-soft)}
+ul.ordl li.o-warn{background:var(--warn-soft)}
+.obar{display:block;height:5px;border-radius:3px;background:#f3c9c4;margin-top:5px;overflow:hidden;max-width:220px}
+.obar u{display:block;height:100%;background:#d63a2c}
+li.o-ok .obar{background:var(--ok-soft)}li.o-ok .obar u{background:var(--ok)}
+li.o-warn .obar u{background:#d99100}
+.ordnote{margin-top:8px;font-size:12px;color:var(--muted)}
+.ordnote summary{cursor:pointer;color:var(--accent);font-weight:600}
+.ordnote p{margin:6px 0 0}
+.ordring span{display:inline-block;background:#fff;border:1px solid #d63a2c;color:#7a1f16;border-radius:9px;font-size:11px;font-weight:700;padding:0 6px;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.leaflet-tooltip.ordlab{background:#d63a2c;color:#fff;border:0;font-weight:700;font-size:11px;padding:2px 6px;border-radius:5px;box-shadow:0 1px 3px rgba(0,0,0,.25)}
+.leaflet-tooltip.ordlab.warn{background:#b77800}
+.leaflet-tooltip.ordlab::before{display:none}
+.ordcard{grid-column:1/-1}
+.ordk{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+.okpi{display:flex;align-items:center;gap:10px;text-align:left;border:1px solid var(--line);border-radius:9px;padding:8px 12px;background:var(--panel);cursor:pointer;font:inherit}
+.okpi b{font-family:var(--f-display);font-size:24px}
+.okpi span{font-size:12px;color:var(--muted)}
+.okpi.bad{border-left:4px solid var(--bad)}.okpi.bad b{color:var(--bad)}
+.okpi.warn{border-left:4px solid var(--warn)}.okpi.warn b{color:#8a5d00}
+.ordalert{display:flex;align-items:center;gap:6px;width:100%;margin-top:12px;padding:8px 12px;border-radius:9px;border:1px solid;font:inherit;font-size:12.5px;font-weight:600;text-align:left;cursor:pointer}
+.ordalert span{margin-left:auto;font-weight:500;white-space:nowrap}
+.ordalert.bad{background:var(--bad-soft);border-color:#efb4ad;color:#9b2318}
+.ordalert.warn{background:var(--warn-soft);border-color:#ecd08a;color:#7a5200}
+.ordalert.ok{background:var(--ok-soft);border-color:#a9dcbd;color:#146c3b}
 </style>
 
 <div id="app">
@@ -1342,6 +1387,7 @@ figure.hero .zoomb svg{width:16px;height:16px}
               <div class="lyg"><h6>Análisis</h6>
                 <label class="lyr"><span class="lic"><i class="sw-choro"></i></span><span class="ltx"><b>Densidad por distrito</b><small>Color según EPE por distrito</small></span><input type="checkbox" class="sw" id="ly-choro"></label>
                 <label class="lyr"><span class="lic"><i class="sw-heat"></i></span><span class="ltx"><b>Mapa de calor</b><small>Concentración de EPE</small></span><input type="checkbox" class="sw" id="ly-heat"></label>
+                <label class="lyr"><span class="lic"><i class="sw-ord"></i></span><span class="ltx"><b>Distancias mínimas (Ord. 2791)</b><small>Pares de EPE bajo la distancia mínima</small></span><input type="checkbox" class="sw" id="ly-ord"></label>
               </div>
             </div>
             <div class="lyf"><button type="button" class="linkbtn" data-lyall="1">Mostrar las principales</button><button type="button" class="linkbtn" data-lyall="0">Ocultar todas</button></div>
@@ -1436,7 +1482,7 @@ const NEAR_M = 60;
 const estado = o => { o.est = o.sr ? 'SIN CÓDIGO DE REGISTRO' : 'CON REGISTRO'; return o; };
 let DATA = (window.EPE_DATA || []).map(o => estado(enrich(Object.assign({fotos: []}, o))));
 const FIELD_LABELS = {tip:'Tipología', car:'Característica técnica', mat:'Material', emp:'Empresa', dd:'Distrito', con:'Contrato', vj:'Vía SVM cercana', chlz:'Centro Histórico', via:'Vía', est:'Estado del registro'};
-const state = {q:'', tip:new Set(), car:new Set(), mat:new Set(), vj:new Set(), chlz:new Set(), est:new Set(), via:'', bbox:null, emp:'', dd:'', con:'', colorBy:'tip', sel:null, radius:100, listLimit:120, sort:'id'};
+const state = {q:'', tip:new Set(), car:new Set(), mat:new Set(), vj:new Set(), chlz:new Set(), est:new Set(), via:'', bbox:null, emp:'', dd:'', con:'', colorBy:'tip', sel:null, radius:'ord', listLimit:120, sort:'id'};
 let filtered = DATA.slice();
 const afterFilter = [];
 
@@ -1880,6 +1926,7 @@ function closeDetail(){
 function drawNear(o, list){
   if(nearCircle){ map.removeLayer(nearCircle); nearCircle=null; }
   if(!o) return;
+  if(state.radius==='ord'){ nearCircle = L.layerGroup(drawOrd(o)).addTo(map); return; }
   nearCircle = L.layerGroup([
     L.circle([o.lat,o.lon], {pane:'near', radius:state.radius, color:cssVar('--accent'), weight:1.5, dashArray:'5 4', fillColor:cssVar('--accent'), fillOpacity:.07, interactive:false}),
     ...list.map(n=>L.polyline([[o.lat,o.lon],[n.o.lat,n.o.lon]], {pane:'near', color:cssVar('--accent'), weight:1, opacity:.6, interactive:false}))
@@ -1899,10 +1946,129 @@ const SVG = {
   near:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2"/></svg>',
   sign:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="11" rx="1.5"/><path d="M12 15v6M8 21h8"/></svg>'
 };
+/* ---------- Distancias mínimas entre EPE (Ordenanza N° 2791-MML, Art. 55 y Art. 59 inc. 3) ---------- */
+const ORD_T = {'PANEL MONUMENTAL':'MON','PANEL MONUMENTAL UNIPOLAR':'UNI','PANEL SIMPLE':'SIM','TOTEM':'TOT','PALETA':'PAL'};
+const ORD_N = {MON:'Monumental', UNI:'Monumental unipolar', SIM:'Panel simple', TOT:'Tótem', PAL:'Paleta'};
+const ORD_M = {
+  MON:{MON:150, UNI:100, SIM:75, TOT:75},
+  UNI:{MON:100, UNI:100, SIM:75, TOT:75},
+  SIM:{MON:75, UNI:75, SIM:75, TOT:75},
+  TOT:{MON:75, UNI:75, SIM:75, TOT:75},
+  PAL:{PAL:50}
+};
+const ORD_LAT = /PANAMERICANA|PRIAL|CARRETERA CENTRAL|NUEVA CARRETERA CENTRAL/;
+const viaName = o => (o.vd!=null && o.vd<=NEAR_M && SVM[o.vi]) ? SVM[o.vi].n : '';
+function ordReq(a, b){
+  const ta = ORD_T[a.tip], tb = ORD_T[b.tip];
+  if(!ta || !tb) return {r:null, why:'sin'};
+  const r = (ORD_M[ta]||{})[tb];
+  if(r==null) return {r:null, why:'na'};
+  const lat = ta==='MON' && tb==='MON' && (ORD_LAT.test(viaName(a)) || ORD_LAT.test(viaName(b)));
+  return {r, lat};
+}
+/* Estado de un par: 'bad' bajo el mínimo y sobre la misma vía; 'warn' bajo el mínimo en vías distintas o sin vía (verificar separador); 'ok' cumple; 'na' no aplica */
+function ordPair(a, b, d){
+  const q = ordReq(a, b);
+  if(q.r==null) return {st:'na', q};
+  if(d >= q.r) return {st:'ok', q};
+  const va = viaName(a), vb = viaName(b);
+  return {st: va && va===vb ? 'bad' : 'warn', q, falta: q.r - d, via: va && va===vb ? va : ''};
+}
+function ordRadius(o){ const t = ORD_T[o.tip]; if(!t) return 100; return Math.max(...Object.values(ORD_M[t])); }
+let ORD_PAIRS = null;
+function ordAllPairs(){
+  if(ORD_PAIRS) return ORD_PAIRS;
+  const out = [], L = DATA.filter(o=>ORD_T[o.tip]);
+  for(let i=0;i<L.length;i++) for(let j=i+1;j<L.length;j++){
+    const a = L[i], b = L[j];
+    if(Math.abs(a.lat-b.lat) > .0015 || Math.abs(a.lon-b.lon) > .0016) continue; // > ~165 m
+    const d = dist(a, b), p = ordPair(a, b, d);
+    if(p.st==='bad' || p.st==='warn') out.push({a, b, d, ...p});
+  }
+  out.sort((x,y)=>(x.st===y.st?0:x.st==='bad'?-1:1) || (y.falta-x.falta));
+  return ORD_PAIRS = out;
+}
+const ORD_ST = {bad:['bad','Bajo el mínimo'], warn:['warn','Verificar separador'], ok:['ok','Cumple'], na:['ref','No aplica']};
+function ordRuleChips(o){
+  const t = ORD_T[o.tip];
+  if(!t) return '<p class="note" style="margin:0">La ordenanza no fija una distancia mínima para la tipología «'+esc(title(o.tip))+'».</p>';
+  const m = ORD_M[t];
+  return '<div class="ordrules"><span>'+esc(ORD_N[t])+' respecto de:</span>'+Object.keys(m).map(k=>'<b>'+esc(ORD_N[k])+' <em>'+m[k]+' m</em></b>').join('')+(t==='PAL'?'':'<b class="na">Paleta <em>no aplica</em></b>')+'</div>';
+}
+function ordAlert(o){
+  if(!ORD_T[o.tip]) return '';
+  let nb = 0, nw = 0;
+  DATA.forEach(x=>{ if(x.id===o.id) return; const d = dist(o,x); if(d > 200) return; const p = ordPair(o,x,d); if(p.st==='bad') nb++; else if(p.st==='warn') nw++; });
+  if(!nb && !nw) return '<button type="button" class="ordalert ok" data-gotab="ubi">⚖ Cumple las distancias mínimas de la Ord. N° 2791-MML <span>Ver entorno ›</span></button>';
+  return '<button type="button" class="ordalert '+(nb?'bad':'warn')+'" data-gotab="ubi">⚖ '+(nb?nb+' EPE bajo la distancia mínima':nw+' EPE cercanos por verificar')+' (Ord. N° 2791-MML) <span>Ver entorno ›</span></button>';
+}
+function ordSection(o){
+  const t = ORD_T[o.tip], R = ordRadius(o);
+  const rows = DATA.filter(x=>x.id!==o.id).map(x=>{ const d = dist(o,x); return {o:x, d, ...ordPair(o, x, d)}; })
+    .filter(x=>x.d <= Math.max(R, 50) || (x.q.r && x.d < x.q.r)).sort((a,b)=>a.d-b.d);
+  const nb = rows.filter(r=>r.st==='bad').length, nw = rows.filter(r=>r.st==='warn').length;
+  const head = !t ? '' : nb ? pill('bad', nb+' EPE bajo el mínimo') : nw ? pill('warn', nw+' por verificar') : pill('ok', 'Cumple las distancias');
+  const lat = rows.some(r=>r.q && r.q.lat);
+  return '<div class="ordbox"><div class="ordh"><b>Distancias mínimas · Ord. N° 2791-MML</b>'+head+'</div>'+ordRuleChips(o)+
+    (rows.length ? '<ul class="near ordl">'+rows.slice(0,40).map(r=>{
+      const s = ORD_ST[r.st], pct = r.q.r ? Math.min(100, r.d/r.q.r*100) : 0;
+      return '<li data-id="'+esc(r.o.id)+'" class="o-'+r.st+'"><i style="background:'+colorOf(r.o)+'"></i><span><span class="mono">'+esc(r.o.id)+'</span> · '+esc(title(r.o.tip))+
+        (r.q.r?'<span class="obar" title="'+Math.round(r.d)+' m de '+r.q.r+' m"><u style="width:'+pct+'%"></u></span>':'')+
+        '<small>'+(r.q.r?'Mínimo '+r.q.r+' m'+(r.falta?' · faltan '+Math.round(r.falta)+' m':''):(r.q.why==='na'?'Distancia no aplica entre estas tipologías':'Tipología sin distancia en la ordenanza'))+(r.via?' · misma vía: '+esc(title(r.via)):'')+'</small></span>'+
+        '<span class="ordr"><span class="mono">'+Math.round(r.d)+' m</span>'+pill(s[0], s[1])+'</span></li>';
+    }).join('')+'</ul>' : '<p class="note">No hay otros EPE dentro de la distancia mínima aplicable ('+R+' m).</p>')+
+    '<details class="ordnote"><summary>Cómo se mide y qué establece la norma</summary><p>Según el Art. 55 de la Ord. N° 2682, incorporado por la Ord. N° 2791-MML, la distancia se mide de forma <b>lineal en un mismo separador</b> y de forma <b>radial</b> en los intercambios viales metropolitanos, considerando los EPE que cuentan con F.R.A.P.'+(lat?' Entre paneles monumentales en separadores laterales de la Panamericana Norte y Sur, Ramiro Prialé, Carretera Central y nuevas vías expresas, el mínimo es de <b>200 m</b>.':'')+'</p><p>El visor calcula la distancia en línea recta y usa la vía del SVM más cercana para estimar si comparten separador: «Bajo el mínimo» indica que ambos están sobre la misma vía; «Verificar separador», que están en vías distintas o sin vía asignada. Confirmar en campo.</p><p>Ubicar un EPE a una distancia menor está prohibido (Art. 59, inc. 3) y constituye la infracción <b>06-0403</b>: multa de 8 UIT, muy grave, con retiro, decomiso o inhabilitación.</p></details></div>';
+}
+function drawOrd(o){
+  const t = ORD_T[o.tip]; if(!t) return [];
+  const out = [], vals = [...new Set(Object.values(ORD_M[t]))].sort((a,b)=>b-a);
+  vals.forEach((r,i)=>{
+    out.push(L.circle([o.lat,o.lon], {pane:'near', radius:r, color:i?'#d99100':'#d63a2c', weight:1.6, dashArray:'6 5', fill:i===vals.length-1, fillColor:'#d63a2c', fillOpacity:.05, interactive:false}));
+    out.push(L.marker([o.lat + r/110574, o.lon], {pane:'near', interactive:false, keyboard:false, icon:L.divIcon({className:'ordring', html:'<span>'+r+' m</span>', iconSize:[48,18], iconAnchor:[24,9]})}));
+  });
+  DATA.forEach(x=>{
+    if(x.id===o.id) return; const d = dist(o,x); if(d > Math.max(...vals)) return;
+    const p = ordPair(o, x, d); if(p.st==='na') return;
+    const col = p.st==='bad' ? '#d63a2c' : p.st==='warn' ? '#d99100' : '#1a9e55';
+    const ln = L.polyline([[o.lat,o.lon],[x.lat,x.lon]], {pane:'near', color:col, weight:p.st==='ok'?1.5:3, opacity:.9, dashArray:p.st==='ok'?'4 4':null, interactive:false});
+    if(p.st!=='ok') ln.bindTooltip(Math.round(d)+' m (mín. '+p.q.r+')', {permanent:true, direction:'center', className:'ordlab '+p.st});
+    out.push(ln);
+  });
+  return out;
+}
+/* Capa de análisis: pares bajo la distancia mínima en todo el mapa */
+const ordLayer = L.layerGroup();
+function drawOrdLayer(){
+  ordLayer.clearLayers();
+  if(!$('#ly-ord') || !$('#ly-ord').checked){ ordLayer.remove(); return; }
+  const keep = new Set(filtered.map(o=>o.id));
+  ordAllPairs().filter(p=>keep.has(p.a.id) || keep.has(p.b.id)).forEach(p=>{
+    const col = p.st==='bad' ? '#d63a2c' : '#d99100';
+    const ln = L.polyline([[p.a.lat,p.a.lon],[p.b.lat,p.b.lon]], {renderer:canvas, color:col, weight:5, opacity:.85});
+    ln.bindTooltip('<b>'+esc(p.a.id)+' ↔ '+esc(p.b.id)+'</b><br>'+Math.round(p.d)+' m · mínimo '+p.q.r+' m'+(p.via?'<br>Misma vía: '+esc(title(p.via)):'<br>Vías distintas: verificar separador'), {sticky:true, className:'tip'});
+    ln.on('click', e=>{ L.DomEvent.stop(e); select(p.a.id); });
+    ordLayer.addLayer(ln);
+  });
+  ordLayer.addTo(map); markersFront();
+}
+function ordCard(){
+  const P = ordAllPairs(), keep = new Set(filtered.map(o=>o.id)), L2 = P.filter(p=>keep.has(p.a.id) || keep.has(p.b.id));
+  const nb = L2.filter(p=>p.st==='bad').length, nw = L2.length - nb;
+  return '<div class="acard ordcard"><h5>Distancias mínimas entre EPE · Ord. N° 2791-MML</h5>'+
+    '<div class="ordk"><button type="button" class="okpi bad" data-ordlayer="1"><b>'+nb+'</b><span>pares bajo el mínimo sobre la misma vía</span></button><button type="button" class="okpi warn" data-ordlayer="1"><b>'+nw+'</b><span>pares cercanos en vías distintas (verificar separador)</span></button></div>'+
+    (L2.length?'<div style="max-height:320px;overflow:auto"><table class="ctab"><thead><tr><th>EPE</th><th>EPE cercano</th><th class="num">Distancia</th><th class="num">Mínimo</th><th>Estado</th></tr></thead><tbody>'+L2.slice(0,80).map(p=>'<tr><td><button type="button" class="linkbtn mono" data-gosel="'+esc(p.a.id)+'">'+esc(p.a.id)+'</button><div class="note">'+esc(title(p.a.tip))+'</div></td><td><button type="button" class="linkbtn mono" data-gosel="'+esc(p.b.id)+'">'+esc(p.b.id)+'</button><div class="note">'+esc(title(p.b.tip))+'</div></td><td class="num">'+Math.round(p.d)+' m</td><td class="num">'+p.q.r+' m</td><td>'+pill(ORD_ST[p.st][0], ORD_ST[p.st][1])+'</td></tr>').join('')+'</tbody></table></div>':'<p class="note">Con los filtros actuales no hay pares por debajo de la distancia mínima.</p>')+
+    '<p class="note">Distancia en línea recta; la norma la mide en el mismo separador. Clic en un código para ver su ficha, o activa la capa «Distancias mínimas» en el mapa.</p></div>';
+}
+document.addEventListener('click', e=>{
+  const g = e.target.closest('[data-gosel]'); if(g){ setView('map'); setTimeout(()=>select(g.dataset.gosel), 120); return; }
+  const l = e.target.closest('[data-ordlayer]'); if(l){ const i = $('#ly-ord'); if(i && !i.checked){ i.checked = true; i.dispatchEvent(new Event('change', {bubbles:true})); } setView('map'); }
+});
+
 function renderDetail(){
   const o = byId.get(state.sel); if(!o) return;
   const seq = sorted(), i = seq.findIndex(x=>x.id===o.id);
-  const near = DATA.filter(x=>x.id!==o.id).map(x=>({o:x, d:dist(o,x)})).filter(x=>x.d<=state.radius).sort((a,b)=>a.d-b.d);
+  const RAD = state.radius==='ord' ? ordRadius(o) : state.radius;
+  const near = DATA.filter(x=>x.id!==o.id).map(x=>({o:x, d:dist(o,x)})).filter(x=>x.d<=RAD).sort((a,b)=>a.d-b.d);
   drawNear(o, near);
   const fotos = fotosOf(o);
   const ll = o.lat.toFixed(6)+', '+o.lon.toFixed(6);
@@ -1924,6 +2090,7 @@ function renderDetail(){
         ('<figure class="hero"><img src="'+esc(fotos[0].src)+'" alt="Fotografía de campo de '+esc(o.id)+'" loading="lazy"><button type="button" class="zoomb" aria-label="Ampliar fotografía"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>'+(fotos[0].fe||fotos[0].cap?'<figcaption><b>'+esc(fotos[0].cap||'Fotografía')+'</b>'+(fotos[0].fe?' · '+esc(fotos[0].fe):'')+(fotos[0].hd!=null?' · vista hacia el '+RUMBO(fotos[0].hd)+' ('+fotos[0].hd+'°)':'')+(fotos[0].lug?'<span>'+esc(fotos[0].lug)+'</span>':'')+'</figcaption>':'')+'</figure>'+(fotos.length>1?'<div class="photos thumbs">'+fotos.slice(1,5).map((f,j)=>'<img src="'+esc(f.src)+'" alt="Fotografía '+(j+2)+' de '+esc(o.id)+'" loading="lazy">').join('')+'</div>':'')+'<div class="insitu"><a class="btn" href="'+sv+'" target="_blank" rel="noopener">'+ICO_SV+'Ver in situ (Street View)</a><a class="btn" href="'+gm+'" target="_blank" rel="noopener">'+ICO_GM+'Google Maps</a></div>') :
         '<div class="nophoto">'+ICON.cam+'<div>Este elemento aún no tiene fotografías registradas.<span class="note" style="display:block;margin-top:2px">Con «Agregar fotos» puedes verlas aquí desde tu equipo; solo se muestran en tu pantalla.</span></div></div>')+
         '<input type="file" id="photoIn" accept="image/*" multiple hidden></div>'+
+      ordAlert(o)+
       '<div class="sec"><h4>'+SVG.doc+'Datos generales</h4><div class="dgen">'+
         dl([[o.sr?'Expediente':'Código de EPE', '<span class="mono">'+esc(o.id)+'</span>'], ['Tipología', esc(title(o.tip))], ['Empresa', esc(shortEmp(o.emp))], ['Contrato', o.con==='SIN CONTRATO'?'Sin contrato':'<span class="mono">'+esc(o.con)+'</span>']])+
         dl([['Distrito', esc(title(o.dd))], ['Coordenadas', '<span class="mono">'+o.lat.toFixed(6)+', '+o.lon.toFixed(6)+'</span>'], ['Vía del SVM', v && o.vd<=NEAR_M ? esc(title(v.n)) : 'Ninguna a '+NEAR_M+' m'], ['Estado', '<span class="dot-ok" style="background:var(--'+st[0]+')"></span>'+(o.sr?'Sin código de registro':'Con registro')], ['Centro Histórico', o.chl?'Dentro':'Fuera']])+
@@ -1954,8 +2121,8 @@ function renderDetail(){
       '<div class="sec"><h4>Ubicación</h4>'+kv([['Dirección', esc(o.dir)], ['Distrito', esc(title(o.dd))], ['UTM WGS84 18S', o.ue? '<span class="mono">E '+esc(o.ue)+' · N '+esc(o.un)+'</span>':'']])+
         (o.dg && o.dg.replace('*','')!==o.dd ? '<p class="note">Según el límite distrital referencial del INEI, el punto cae en '+esc(title(o.dg.replace('*','')))+'. Suele ocurrir en avenidas que separan distritos.</p>' : '')+'</div>'+
       ctxSection(o)+
-      '<div class="sec"><h4>'+SVG.near+'Entorno</h4><div class="near-tools"><span>Radio</span>'+[50,100,200,500].map(r=>'<button type="button" data-r="'+r+'" aria-pressed="'+(r===state.radius)+'">'+r+' m</button>').join('')+'</div>'+
-        (near.length? '<p class="note" style="margin:0 0 6px">'+near.length+' elemento'+(near.length===1?'':'s')+' a menos de '+state.radius+' m.</p><ul class="near">'+near.slice(0,30).map(n=>'<li data-id="'+esc(n.o.id)+'"><i style="background:'+colorOf(n.o)+'"></i><span><span class="mono">'+esc(n.o.id)+'</span> · '+esc(title(n.o.tip))+'</span><span class="mono">'+Math.round(n.d)+' m</span></li>').join('')+'</ul>' : '<p class="note">No hay otros elementos registrados a menos de '+state.radius+' m.</p>')+'</div>';
+      '<div class="sec"><h4>'+SVG.near+'Entorno</h4><div class="near-tools"><button type="button" class="ordbtn" data-r="ord" aria-pressed="'+(state.radius==='ord')+'">⚖ Según ordenanza</button><span>Radio</span>'+[50,100,200,500].map(r=>'<button type="button" data-r="'+r+'" aria-pressed="'+(r===state.radius)+'">'+r+' m</button>').join('')+'</div>'+
+        (state.radius==='ord' ? ordSection(o) : near.length? '<p class="note" style="margin:0 0 6px">'+near.length+' elemento'+(near.length===1?'':'s')+' a menos de '+state.radius+' m.</p><ul class="near">'+near.slice(0,30).map(n=>'<li data-id="'+esc(n.o.id)+'"><i style="background:'+colorOf(n.o)+'"></i><span><span class="mono">'+esc(n.o.id)+'</span> · '+esc(title(n.o.tip))+'</span><span class="mono">'+Math.round(n.d)+' m</span></li>').join('')+'</ul>' : '<p class="note">No hay otros elementos registrados a menos de '+state.radius+' m.</p>')+'</div>';
   }
   $('#detail').innerHTML =
     '<div class="dh"><div class="dh1"><h2 class="'+(o.sr?'':'mono')+'" style="'+(o.sr?'':'font-family:var(--f-display)')+'">'+esc(o.id)+'</h2><span class="stp '+st[0]+'">'+st[1]+'</span><span class="sp"></span><button class="ibtn" id="dClose" type="button" aria-label="Cerrar ficha y volver a la lista">'+ICON.close+'</button></div>'+
@@ -1966,9 +2133,10 @@ function renderDetail(){
   $('#dClose').onclick = closeDetail;
   $('#dPrev').onclick = ()=>{ if(i>0) select(seq[i-1].id); };
   $('#dNext').onclick = ()=>{ if(i<seq.length-1) select(seq[i+1].id); };
+  document.querySelectorAll('[data-gotab]').forEach(b=>b.onclick=()=>{ dTab = b.dataset.gotab; if(state.radius!=='ord') state.radius = 'ord'; renderDetail(); const x = document.querySelector('.ordbox'); if(x) x.scrollIntoView({block:'start', behavior:'smooth'}); });
   document.querySelectorAll('.dtabs [data-dt]').forEach(b=>b.onclick=()=>{ dTab = b.dataset.dt; try{ localStorage.setItem('epe.dtab', dTab); }catch(e){} renderDetail(); });
   if($('#dCopy')) $('#dCopy').onclick = ()=>{ try{ navigator.clipboard.writeText(ll).then(()=>toast('Coordenadas copiadas'), ()=>toast(ll)); }catch(e){ toast(ll); } };
-  document.querySelectorAll('.near-tools [data-r]').forEach(b=>b.onclick=()=>{ state.radius=+b.dataset.r; renderDetail(); });
+  document.querySelectorAll('.near-tools [data-r]').forEach(b=>b.onclick=()=>{ state.radius = b.dataset.r==='ord' ? 'ord' : +b.dataset.r; renderDetail(); });
   document.querySelectorAll('.near li').forEach(li=>li.onclick=()=>select(li.dataset.id));
   document.querySelectorAll('.photos img, figure.hero img, figure.hero .zoomb').forEach(el=>el.onclick=()=>{ const im = el.tagName==='IMG' ? el : el.parentNode.querySelector('img'); $('#lbImg').src = im.src; $('#lbImg').alt = im.alt; $('#lightbox').hidden=false; });
   attachDrag();
@@ -2373,6 +2541,7 @@ function renderAna(){
       card('Distribución por tipología', donut('tip'))+
       card('Estado del registro', hbars('est', 3))+
     '</div><div class="agrid">'+
+      ordCard()+
       card('Vía del SVM más cercana', hbars('vj', 6))+
       card('Distrito', hbars('dd', 15))+
       card('Empresa', hbars('emp', 30))+
@@ -2980,7 +3149,7 @@ $('#ly-proj').addEventListener('change', drawProjects);
 $('#pjFile').addEventListener('change', async e=>{ const f = e.target.files[0]; e.target.value=''; if(!f) return; try{ await pjImport(f); }catch(err){ toast(err.message); } });
 
 /* ---------- Panel de capas ---------- */
-const LY = [['ly-pts','EPE'],['ly-svm','Vías SVM'],['ly-dist','Distritos'],['ly-chl','Centro Histórico'],['ly-proj','Proyectos'],['ly-choro','Densidad'],['ly-heat','Calor'],['ly-ids','Códigos']];
+const LY = [['ly-ord','Distancias'],['ly-pts','EPE'],['ly-svm','Vías SVM'],['ly-dist','Distritos'],['ly-chl','Centro Histórico'],['ly-proj','Proyectos'],['ly-choro','Densidad'],['ly-heat','Calor'],['ly-ids','Códigos']];
 function renderLyState(){
   const on = LY.filter(([id])=>$('#'+id) && $('#'+id).checked);
   $('#lyBadge').textContent = on.length;
@@ -3000,6 +3169,8 @@ $('#lyClose').addEventListener('click', ()=>setLyPanel(false));
 $('#lyOpenSide').addEventListener('click', ()=>{ setLyPanel(true); if(innerWidth<900) $('#side').classList.remove('open'); });
 document.addEventListener('keydown', e=>{ if(e.key==='Escape' && !$('#lyPanel').hidden) setLyPanel(false); });
 
+$('#ly-ord').addEventListener('change', drawOrdLayer);
+afterFilter.push(()=>{ ORD_PAIRS = null; drawOrdLayer(); });
 /* ---------- Inicio ---------- */
 try{ const c = localStorage.getItem('epe.colorBy'); if(c && FIELD_LABELS[c]) state.colorBy = c; }catch(e){}
 byId = new Map(DATA.map(o=>[o.id,o]));
