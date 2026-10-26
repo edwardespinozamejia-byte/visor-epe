@@ -1144,6 +1144,70 @@ table.sched{background:var(--panel)}
 .pbar i{display:block;height:100%;background:var(--ok)}
 table.clist{min-width:1480px}
 table.clist .note{white-space:nowrap}
+
+/* Panel de capas */
+:root{--proj:#0b8f7f}
+.lybtn{display:inline-flex;align-items:center;gap:7px;height:36px;padding:0 12px;border-radius:8px;border:1px solid var(--accent);background:var(--accent);color:var(--accent-ink);font:inherit;font-size:13.5px;font-weight:700;cursor:pointer;box-shadow:var(--shadow-2)}
+.lybtn svg{width:18px;height:18px}
+.lybtn .badge{min-width:20px;height:20px;border-radius:10px;background:#fff;color:var(--accent);font-size:12px;display:grid;place-items:center;padding:0 5px}
+.lybtn[aria-expanded="true"]{background:var(--panel);color:var(--accent)}
+.lybtn[aria-expanded="true"] .badge{background:var(--accent);color:#fff}
+.lypanel{position:absolute;top:56px;right:12px;z-index:660;width:330px;max-width:calc(100% - 24px);max-height:calc(100% - 120px);display:flex;flex-direction:column;box-shadow:0 12px 32px rgba(16,33,58,.22);border-radius:12px;overflow:hidden}
+.lyh{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;padding:12px 14px 10px;border-bottom:1px solid var(--line)}
+.lyh b{display:block;font-size:15px}
+.lyh small{display:block;font-size:12px;color:var(--muted);margin-top:2px}
+.ib{width:28px;height:28px;border-radius:7px;border:1px solid var(--line);background:var(--panel);cursor:pointer;display:grid;place-items:center;font-size:18px;line-height:1;color:var(--ink);padding:0;flex:none}
+.ib:hover{color:var(--accent);border-color:var(--accent)}
+.ib svg{width:16px;height:16px}
+.lybody{overflow:auto;padding:6px 10px 10px}
+.lyg h6{margin:10px 4px 6px;font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.lyr{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:9px;border:1px solid var(--line);margin-bottom:6px;cursor:pointer;background:var(--panel);transition:background .15s,border-color .15s}
+.lyr:hover{border-color:var(--accent)}
+.lyr.on{background:var(--accent-soft);border-color:#b9cbf2;box-shadow:inset 3px 0 0 var(--accent)}
+.lyr .lic{width:30px;height:30px;border-radius:8px;background:var(--panel-2);display:grid;place-items:center;flex:none}
+.lyr .lic i{display:block}
+.sw-dot{width:12px;height:12px;border-radius:50%;background:#e8590c;box-shadow:0 0 0 2px #fff,0 0 0 3px #e8590c}
+.sw-proj{width:16px;height:13px;border:2px solid var(--proj);background:rgba(11,143,127,.25);border-radius:2px}
+.sw-svm{width:18px;height:0;border-top:4px solid #c0392b;box-shadow:0 5px 0 -1px #e67e22}
+.sw-dist{width:16px;height:13px;border:1.5px solid #6b7c93;border-radius:2px}
+.sw-chl{width:16px;height:13px;border:2px dashed var(--chl);border-radius:2px}
+.sw-choro{width:16px;height:14px;background:linear-gradient(90deg,#dbe6fb,#1f4fbf);border-radius:2px}
+.sw-heat{width:16px;height:16px;border-radius:50%;background:radial-gradient(circle,#d63a2c,#f5a623 55%,rgba(245,166,35,0) 72%)}
+.lyr .ltx{flex:1;min-width:0}
+.lyr .ltx b{display:block;font-size:13.5px;font-weight:600;line-height:1.2}
+.lyr .ltx small{display:block;font-size:11.5px;color:var(--muted);margin-top:1px}
+input.sw{appearance:none;-webkit-appearance:none;width:36px;height:20px;border-radius:10px;background:#c5cfdc;position:relative;cursor:pointer;flex:none;margin:0;transition:background .15s}
+input.sw::before{content:"";position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.25);transition:left .15s}
+input.sw:checked{background:var(--accent)}
+input.sw:checked::before{left:18px}
+input.sw:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.lypanel .svmkey{margin:-2px 0 8px 52px}
+.lyr:not(.on)+.svmkey{display:none}
+.lyf{display:flex;justify-content:space-between;padding:8px 14px;border-top:1px solid var(--line);background:var(--panel-2)}
+.pjlist{margin:0 0 6px}
+.pjrow{display:flex;align-items:center;gap:6px;padding:6px 6px 6px 12px;border-left:2px solid var(--line);margin-left:24px}
+.pjrow.on{border-left-color:var(--proj)}
+.pjrow label{display:flex;align-items:flex-start;gap:8px;flex:1;min-width:0;cursor:pointer;font-size:13px}
+.pjrow input{accent-color:var(--proj);margin:2px 0 0}
+.pjrow small{display:block;font-size:11.5px;color:var(--muted)}
+.pjrow i{display:none}
+.pjadd{display:flex;align-items:center;justify-content:center;gap:6px;width:100%;margin:2px 0 4px;font-size:12.5px;cursor:pointer;border-style:dashed}
+.pjadd svg{width:15px;height:15px}
+.lyside .lyct{font-weight:500;letter-spacing:0;text-transform:none;color:var(--faint);margin-left:6px}
+.lyside .chips{margin-bottom:8px}
+.lyopen{display:flex;align-items:center;justify-content:center;gap:7px;width:100%}
+.lyopen svg{width:17px;height:17px}
+.pjpin span{display:grid;place-items:center;width:30px;height:30px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:var(--proj);border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.35)}
+.pjpin svg{width:16px;height:16px;color:#fff;transform:rotate(45deg)}
+.leaflet-tooltip.pjlab{background:var(--proj);color:#fff;border:0;border-radius:6px;font-weight:700;font-size:12.5px;padding:4px 8px;box-shadow:0 2px 6px rgba(0,0,0,.25)}
+.leaflet-tooltip.pjlab span{font-weight:400;font-size:11px;opacity:.9}
+.leaflet-tooltip.pjlab::before{border-right-color:var(--proj)}
+.pjpop .pjr{display:flex;flex-wrap:wrap;gap:5px;margin:8px 0 2px;align-items:center}
+.pjpop .pjr>span{width:100%;font-size:11.5px;color:var(--muted)}
+.pjpop .chip{font-size:12px;padding:3px 9px}
+.pjpop .chip.on{background:var(--proj);color:#fff;border-color:var(--proj)}
+.pjpop .chip[disabled]{opacity:.45;cursor:default}
+@media (max-width:900px){.lybtn{padding:0 9px}.lypanel{top:auto;bottom:12px;left:12px;right:12px;width:auto;max-height:70%}}
 </style>
 
 <div id="app">
@@ -1206,16 +1270,9 @@ table.clist .note{white-space:nowrap}
           <div class="fg" style="margin-top:12px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg><h3>Color de los puntos</h3><div class="fc"><select class="sel" id="colorBySel"></select></div></div>
           <p class="note">Las barras de los gráficos y las etiquetas de la leyenda también filtran: haz clic sobre ellas.</p>
         </div>
-        <div class="lsec"><b>Capas del mapa</b>
-          <div class="lys">
-            <label><input type="checkbox" id="ly-pts" checked> EPE (<span id="nPts">0</span>)</label>
-            <label><input type="checkbox" id="ly-svm" checked> Vías del SVM (IMP)</label>
-            <div class="svmkey" id="svmKey"></div>
-            <label><input type="checkbox" id="ly-dist" checked> Límites distritales</label>
-            <label><input type="checkbox" id="ly-chl" checked> Centro Histórico de Lima <span class="ln" style="border-top:2px dashed var(--chl)"></span></label>
-            <label><input type="checkbox" id="ly-choro"> Densidad por distrito</label>
-            <label><input type="checkbox" id="ly-heat"> Mapa de calor</label>
-          </div>
+        <div class="lsec lyside"><b>Capas del mapa <span class="lyct" id="lyCount"></span></b>
+          <div class="chips" id="lyChips"></div>
+          <button type="button" class="btn lyopen" id="lyOpenSide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m12 3 9 5-9 5-9-5 9-5z"/><path d="m3 13 9 5 9-5"/></svg>Gestionar capas</button>
         </div>
       </div>
       <div class="side-f"><span>Mostrando <b id="nShown">0</b> de <b id="nTotal">0</b></span><span id="listCt" hidden></span></div>
@@ -1231,6 +1288,7 @@ table.clist .note{white-space:nowrap}
             <ul class="sugg" id="sugg" hidden></ul>
           </div>
           <div class="map-tools">
+            <button type="button" class="lybtn" id="zLayers" aria-expanded="false" aria-controls="lyPanel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="m12 3 9 5-9 5-9-5 9-5z"/><path d="m3 13 9 5 9-5"/></svg>Capas<span class="badge" id="lyBadge">0</span></button>
             <div class="seg" id="baseSeg">
               <button type="button" data-base="gmap" aria-pressed="false">Google Maps</button>
               <button type="button" data-base="gsat" aria-pressed="false">Google Satélite</button>
@@ -1238,6 +1296,29 @@ table.clist .note{white-space:nowrap}
               <button type="button" data-base="map" aria-pressed="false">Calles</button>
               <button type="button" data-base="vec" aria-pressed="false">Sin fondo</button>
             </div>
+          </div>
+          <div class="card lypanel" id="lyPanel" hidden role="dialog" aria-label="Capas del mapa">
+            <div class="lyh"><div><b>Capas del mapa</b><small id="lyCount2">Activa o desactiva lo que se ve en el mapa</small></div><button type="button" class="ib" id="lyClose" aria-label="Cerrar capas">×</button></div>
+            <div class="lybody">
+              <div class="lyg"><h6>Elementos</h6>
+                <label class="lyr"><span class="lic"><i class="sw-dot"></i></span><span class="ltx"><b>Elementos de publicidad exterior</b><small><span id="nPts">0</span> EPE visibles con los filtros</small></span><input type="checkbox" class="sw" id="ly-pts" checked></label>
+              </div>
+              <div class="lyg"><h6>Proyectos de inversión</h6>
+                <label class="lyr"><span class="lic"><i class="sw-proj"></i></span><span class="ltx"><b>Proyectos de inversión</b><small>Área del proyecto y su entorno</small></span><input type="checkbox" class="sw" id="ly-proj" checked></label>
+                <div class="pjlist" id="lyProj"></div>
+                <label class="btn pjadd"><input type="file" id="pjFile" accept=".kmz,.kml" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>Agregar proyecto (KMZ o KML)</label>
+              </div>
+              <div class="lyg"><h6>Referencia urbana</h6>
+                <label class="lyr"><span class="lic"><i class="sw-svm"></i></span><span class="ltx"><b>Vías del SVM (IMP)</b><small>Sistema Vial Metropolitano</small></span><input type="checkbox" class="sw" id="ly-svm" checked></label><div class="svmkey" id="svmKey"></div>
+                <label class="lyr"><span class="lic"><i class="sw-dist"></i></span><span class="ltx"><b>Límites distritales</b><small>Lima Metropolitana y Callao</small></span><input type="checkbox" class="sw" id="ly-dist" checked></label>
+                <label class="lyr"><span class="lic"><i class="sw-chl"></i></span><span class="ltx"><b>Centro Histórico de Lima</b><small>Ámbito de gestión</small></span><input type="checkbox" class="sw" id="ly-chl" checked></label>
+              </div>
+              <div class="lyg"><h6>Análisis</h6>
+                <label class="lyr"><span class="lic"><i class="sw-choro"></i></span><span class="ltx"><b>Densidad por distrito</b><small>Color según EPE por distrito</small></span><input type="checkbox" class="sw" id="ly-choro"></label>
+                <label class="lyr"><span class="lic"><i class="sw-heat"></i></span><span class="ltx"><b>Mapa de calor</b><small>Concentración de EPE</small></span><input type="checkbox" class="sw" id="ly-heat"></label>
+              </div>
+            </div>
+            <div class="lyf"><button type="button" class="linkbtn" data-lyall="1">Mostrar las principales</button><button type="button" class="linkbtn" data-lyall="0">Ocultar todas</button></div>
           </div>
           <div class="card gkey" id="gkeyCard" hidden>
             <b>Conectar Google Maps</b>
@@ -1302,6 +1383,7 @@ window.GOOGLE_MAPS_KEY = window.GOOGLE_MAPS_KEY || "";
 /* Totales fijados en los contratos (prevalecen sobre la suma de montos por elemento). */
 window.EPE_CONTRATOS = {"001-2025-R":{"emp":"PANELES NAPSA S.R.L.","fs":"22/12/2025","ra":1809080,"rc":243377,"gar":"Carta fianza","obsXl":"La hoja 1 del control de pagos registra el saldo dinerario (S/ 1,064,846.20, fecha 22/12/2026) con estado COMPLETO; la hoja 2 indica un pendiente de S/ 338,703.20. Confirmar con Tesorería.","rcPag":[{"f":"","m":243377,"st":"E","d":"Pagada en bienes y servicios: proyecto \"Creación del Centro de Operaciones Zonal en Plazuela Castañeta – Cercado de Lima\" (S/ 370,000; 25 días). Crédito a favor del usufructuario: S/ 126,623."}],"cuotas":[{"f":"","m":18090.8,"st":"E","d":"Supervisión (1 %)"},{"f":"","m":726143,"st":"E","d":"Bienes y servicios (grúas y camionetas, entre otros)"},{"f":"22/12/2026","m":1064846.2,"d":"Saldo dinerario"}],"patF":["22/11/2026","22/11/2027","22/11/2028","22/11/2029"],"patN":1,"nota":"Años 2 a 5: retribución actualizada por IPC, notificada hasta el 22 de octubre y con vencimiento el 22 de noviembre. La garantía (carta fianza) debe estar vigente hasta 4 meses después del fin del contrato.","plazo":"5 años desde la suscripción","garM":180908.0,"fuente":"Contrato N° 001-2025-R (Anexo 04 / cláusulas de plazo y garantía); montos sin IGV","xl":{"rc":[[243377,"16/01/2026"]],"ra":[[744233.8,"16/01/2026"],[1064846.2,"22/12/2026"]],"saldo":0,"est":"COMPLETO","sup":18090.8,"supv":"INVERMET","pts":275}},"001-2026-R":{"emp":"ALAC MANAGEMENT S.A.C.","fs":"16/06/2026","ra":30756,"rc":2640,"gar":"Depósito en garantía","rcPag":[{"f":"25/05/2026","m":2640,"st":"P"}],"cuotas":[{"f":"25/05/2026","m":30756,"st":"P","d":"Pago único"}],"pat":["15/05"],"nota":"En la línea de pago de la retribución por compensación el contrato indica S/ 2,460; el cuadro del Anexo 04 indica S/ 2,640.","plazo":"5 años desde la suscripción","garM":3075.6,"fuente":"Contrato N° 001-2026-R (Anexo 04 / cláusulas de plazo y garantía); montos sin IGV","xl":{"rc":[[2640,"25/05/2026"]],"ra":[[30756,"25/05/2026"]],"saldo":0,"est":"COMPLETO","sup":307.56,"supv":"GFC","pts":1}},"002-2026-R":{"emp":"CONSTRUCTORA PROBIEN S.A.C.","fs":"24/06/2026","ra":5122,"rc":2169,"gar":"Depósito en garantía","rcPag":[{"f":"05/06/2025","m":null,"st":"P","d":"Primer pago"},{"f":"28/04/2026","m":null,"st":"P","d":"Pago complementario (cancelada)"}],"cuotas":[{"f":"","m":5122,"st":"P","d":"Año 2026 cancelado"}],"pat":["16/06"],"plazo":"5 años desde la suscripción","garM":512.2,"fuente":"Contrato N° 002-2026-R (Anexo 04 / cláusulas de plazo y garantía); montos sin IGV","xl":{"rc":[[1124,"04/06/2025"],[1045,"28/04/2026"]],"ra":[[5003,"04/06/2025"],[119,"28/04/2026"]],"saldo":0,"est":"COMPLETO","sup":51.22,"supv":"GFC","pts":2}},"003-2026-R":{"emp":"72 DIGITAL OUTDOOR S.A.C.","fs":"01/07/2026","ra":77121,"rc":5505,"gar":"Depósito en garantía","rcPag":[{"f":"03/07/2025","m":5505,"st":"P"}],"cuotas":[{"f":"20/08/2025","m":25707,"st":"P"},{"f":"30/09/2026","m":25707},{"f":"31/12/2026","m":25707}],"pat":["30/04","31/08","31/12"],"plazo":"5 años desde la suscripción","garM":7712.1,"fuente":"Contrato N° 003-2026-R (Anexo 04 / cláusulas de plazo y garantía); montos sin IGV","xl":{"rc":[[5505,"03/07/2025"]],"ra":[[25707,"30/07/2026"],[25707,"30/09/2026"]],"saldo":25707,"est":"PENDIENTE","sup":771.21,"supv":"GFC","pts":5}},"004-2026-R":{"emp":"ESTAGAS ANCO S.A.C.","fs":"01/07/2026","ra":1096,"rc":1045,"gar":"Depósito en garantía","rcPag":[{"f":"29/04/2026","m":1045,"st":"P"}],"cuotas":[{"f":"29/04/2026","m":1096,"st":"P","d":"Pago único"}],"pat":["15/05"],"plazo":"5 años desde la suscripción","garM":109.6,"fuente":"Contrato N° 004-2026-R (Anexo 04 / cláusulas de plazo y garantía); montos sin IGV","xl":{"rc":[[1045,"29/04/2026"]],"ra":[[1096,"29/04/2026"]],"saldo":0,"est":"COMPLETO","sup":10.96,"supv":"GFC","pts":1}},"005-2026-R":{"emp":"ALTAVISTA OOH S.A.C.","fs":"02/07/2026","ra":21014,"rc":8360,"gar":"Depósito en garantía","rcPag":[{"f":"12/05/2026","m":10725,"st":"P","d":"Pagó S/ 10,725; saldo a favor de S/ 2,365 imputado a la cuota 1 de la retribución anual"}],"cuotas":[{"f":"02/07/2026","m":7004.66,"d":"A la firma del contrato; saldo por pagar S/ 4,639.66 tras imputar S/ 2,365"},{"f":"31/08/2026","m":7005.32},{"f":"31/12/2026","m":7004.02}],"pat":["30/04","31/08","31/12"],"plazo":"5 años desde la suscripción","garM":2101.4,"fuente":"Contrato N° 005-2026-R (Anexo 04 / cláusulas de plazo y garantía); montos sin IGV","xl":{"rc":[[8360,"07/05/2026"]],"ra":[[7004.66,"02/07/2026"],[7005.66,"31/08/2026"]],"saldo":7003.68,"est":"PENDIENTE","sup":210.14000000000001,"supv":"GFC","pts":8}},"006-2026-R":{"emp":"PUBLIRED S.A.C.","fs":"03/07/2026","ra":77088,"rc":10786,"gar":"Depósito en garantía","rcPag":[{"f":"10/06/2025","m":10786,"st":"P"}],"cuotas":[{"f":"31/08/2026","m":25696},{"f":"31/12/2026","m":25696},{"f":"30/04/2027","m":25696}],"pat":["31/08","31/12","30/04"],"plazo":"5 años desde la suscripción","garM":7708.8,"fuente":"Contrato N° 006-2026-R (Anexo 04 / cláusulas de plazo y garantía); montos sin IGV","xl":{"rc":[[10786,"10/06/2026"]],"ra":[[25696,"31/08/2026"]],"saldo":51392,"est":"PENDIENTE","sup":770.88,"supv":"GFC","pts":13}},"007-2026-R":{"emp":"BOOMERANG PANELS S.A.C.","fs":"07/07/2026","ra":21427,"rc":9684,"gar":"Depósito en garantía","rcPag":[{"f":"13/11/2025","m":null,"st":"P","d":"Cuota 1"},{"f":"15/12/2025","m":null,"st":"P","d":"Cuota 2"}],"cuotas":[{"f":"22/06/2026","m":7143,"st":"P"},{"f":"31/08/2026","m":7142},{"f":"31/12/2026","m":7142}],"pat":["30/04","31/08","31/12"],"plazo":"5 años desde la suscripción","garM":2142.7,"fuente":"Contrato N° 007-2026-R (Anexo 04 / cláusulas de plazo y garantía); montos sin IGV","xl":{"rc":[[4842,"13/11/2025"],[4842,"15/12/2025"]],"ra":[[7143,"22/06/2026"],[7142,"31/08/2026"]],"saldo":7142,"est":"PENDIENTE","sup":214.27,"supv":"GFC","pts":9}},"008-2026-R":{"emp":"GRUPO TORVISCO S.A.","fs":"08/07/2026","ra":8778,"rc":1284,"gar":"Depósito en garantía","rcPag":[{"f":"01/09/2025","m":1284,"st":"P"}],"cuotas":[{"f":"01/09/2025","m":8778,"st":"P","d":"Pago único"}],"pat":["16/06"],"plazo":"5 años desde la suscripción","garM":877.8,"fuente":"Contrato N° 008-2026-R (Anexo 04 / cláusulas de plazo y garantía); montos sin IGV","xl":{"rc":[[1284,"29/08/2025"]],"ra":[[8778,"29/08/2025"]],"saldo":0,"est":"COMPLETO","sup":87.78,"supv":"GFC","pts":1}},"009-2026-R":{"emp":"SGG CHANEL S.A.C.","fs":"09/07/2026","ra":30756,"rc":1798,"gar":"Depósito en garantía","rcPag":[{"f":"26/06/2025","m":1798,"st":"P"}],"cuotas":[{"f":"03/10/2025","m":13181,"st":"P"},{"f":"31/08/2026","m":13181},{"f":"31/12/2026","m":4394}],"pat":["30/04","31/08","31/12"],"nota":"El contrato consigna la razón social \"SGG CHANNEL S.A.C.\".","plazo":"5 años desde la suscripción","garM":3075.6,"fuente":"Contrato N° 009-2026-R (Anexo 04 / cláusulas de plazo y garantía); montos sin IGV","xl":{"rc":[[1798,"25/06/2026"]],"ra":[[13181,"03/10/2025"],[13181,"31/08/2026"]],"saldo":4394,"est":"PENDIENTE","sup":307.56,"supv":"GFC","pts":1}},"010-2026-R":{"emp":"REGBA DIGITAL E.I.R.L.","fs":"10/07/2026","ra":30756,"rc":2568,"gar":"Depósito en garantía","rcPag":[{"f":"23/09/2025","m":2568,"st":"P"}],"cuotas":[{"f":"31/12/2026","m":10252},{"f":"31/03/2027","m":10252},{"f":"30/06/2027","m":10252}],"pat":["31/12","31/03","30/06"],"plazo":"5 años desde la suscripción","garM":3075.6,"fuente":"Contrato N° 010-2026-R (Anexo 04 / cláusulas de plazo y garantía); montos sin IGV","xl":{"rc":[[2568,"23/09/2025"]],"ra":[],"saldo":30756,"est":"PENDIENTE","sup":307.56,"supv":"GFC","pts":1}},"011-2026-R":{"emp":"IMPACTO VISUAL OUTDOOR S.A.C.","fs":"14/07/2026","ra":83127,"rc":12305,"gar":"Depósito en garantía","rcPag":[{"f":"06/06/2025","m":12305,"st":"P"}],"cuotas":[{"f":"09/07/2025","m":27709,"st":"P"},{"f":"14/10/2025","m":27709,"st":"P"},{"f":"15/01/2026","m":27709,"st":"P"}],"pat":["31/07","30/11","31/03"],"p2":"31/07/2027","nota":"El primer año está íntegramente cancelado según el contrato.","plazo":"5 años desde la suscripción","garM":8312.7,"fuente":"Contrato N° 011-2026-R (Anexo 04 / cláusulas de plazo y garantía); montos sin IGV","xl":{"rc":[[12305,"06/06/2025"]],"ra":[[27709,"09/07/2025"],[27709,"14/10/2025"],[27709,"15/01/2026"]],"saldo":0,"est":"COMPLETO","sup":831.27,"supv":"GFC","pts":10}},"015-2026-R":{"emp":"VALLAS Y GIGANTOGRAFIAS DE PERU S.A.","fs":"20/07/2026","ra":94652,"rc":4638,"gar":"Depósito en garantía","rcPag":[{"f":"23/05/2025","m":4638,"st":"P"}],"cuotas":[{"f":"30/09/2026","m":31550.67},{"f":"30/11/2026","m":31550.67},{"f":"31/01/2027","m":31550.66}],"pat":["30/09","30/11","31/01"],"nota":"Contrato corregido. En el quinto año, la tercera cuota figura con fecha 31/12/2031 (probable error material; el patrón de los demás años es 31 de enero).","plazo":"5 años desde la suscripción","garM":9465.2,"fuente":"Contrato N° 015-2026-R (Anexo 04 / cláusulas de plazo y garantía); montos sin IGV","xl":{"rc":[[4638,"23/05/2025"]],"ra":[[31550.67,"30/09/2026"]],"saldo":63101.33,"est":"PENDIENTE","sup":946.52,"supv":"GFC","pts":5}},"017-2026-R":{"emp":"INGENIERIA PERUANA DE PUBLICIDAD S.A.C.","fs":"24/07/2026","ra":797280,"rc":91225,"gar":"Depósito en garantía","rcPag":[{"f":"29/08/2025","m":26875,"st":"P","d":"Cuota 1"},{"f":"28/11/2025","m":26875,"st":"P","d":"Cuota 2"},{"f":"03/02/2026","m":26875,"st":"P","d":"Cuota 3 (S/ 80,625 por 55 EPE; recalculada a S/ 79,180 por 54 EPE, saldo a favor de S/ 1,445)"},{"f":"09/07/2026","m":12045,"st":"P","d":"Retribución por 9 EPE adicionales"}],"cuotas":[{"f":"31/07/2026","m":265760,"d":"Por pagar S/ 264,315 tras imputar S/ 1,445"},{"f":"31/12/2026","m":265760},{"f":"30/06/2027","m":265760}],"pat":["30/09","31/12","30/06"],"p2":"30/09/2027","plazo":"5 años desde la suscripción","garM":79728.0,"fuente":"Contrato N° 017-2026-R (Anexo 04 / cláusulas de plazo y garantía); montos sin IGV","xl":{"rc":[[79180,"03/02/2026"],[12045,"09/07/2026"]],"ra":[[265760,"27/07/2026"]],"saldo":531520,"est":"PENDIENTE","sup":7972.8,"supv":"GFC","pts":63}},"018-2026-R":{"emp":"STREET MEDIA S.A.C.","fs":"04/08/2026","ra":27060,"rc":7315,"gar":"Depósito en garantía","rcPag":[{"f":"26/08/2025","m":5348,"st":"P","d":"Primer abono"},{"f":"18/09/2025","m":5348,"st":"P","d":"Segundo abono; saldo a favor de S/ 3,381 imputado a la retribución anual"}],"cuotas":[{"f":"31/08/2026","m":9020,"d":"Por pagar S/ 5,639 tras imputar S/ 3,381"},{"f":"31/10/2026","m":9020},{"f":"31/12/2026","m":9020}],"pat":["31/08","31/10","31/12"],"nota":"El control de pagos registra la compensación como 2 pagos de S/ 3,657.50; el contrato consigna 2 abonos de S/ 5,348 con saldo a favor de S/ 3,381.","plazo":"5 años desde la suscripción","garM":2706.0,"fuente":"Contrato N° 018-2026-R (Anexo 04 / cláusulas de plazo y garantía); montos sin IGV","xl":{"rc":[[3657.5,"25/08/2025"],[3657.5,"18/09/2025"]],"ra":[[9020,"31/08/2026"]],"saldo":18040,"est":"PENDIENTE","sup":270.6,"supv":"GFC","pts":10}},"019-2026-R":{"emp":"PROMOTORA TURISTICA E INMOBILIARIA TRANSOCEANICA S.A.C.","fs":"05/08/2026","ra":7920,"rc":1284,"gar":"Depósito en garantía","rcPag":[{"f":"10/11/2025","m":1284,"st":"P","d":"Pago único (S/ 1,515.12 con IGV)"}],"cuotas":[{"f":"10/11/2025","m":7920,"st":"P","d":"Pago único (S/ 9,345.60 con IGV)"}],"pat":["15/05"],"p2":"15/05/2027","plazo":"5 años desde la suscripción","garM":792.0,"fuente":"Contrato N° 019-2026-R (Anexo 04 / cláusulas de plazo y garantía); montos sin IGV","xl":{"rc":[[1284,"10/11/2025"]],"ra":[[7920,"10/11/2025"]],"saldo":0,"est":"COMPLETO","sup":79.2,"supv":"GFC","pts":1}},"020-2026-R":{"emp":"VISUALES IN OUT S.A.C.","fs":"28/08/2026","ra":294888,"rc":18522,"gar":"Depósito en garantía","rcPag":[{"f":"","m":21347,"st":"P","d":"Primer pago"},{"f":"","m":2568,"st":"P","d":"Segundo pago; saldo a favor de S/ 5,393 imputado a la cuota 1"}],"cuotas":[{"f":"31/08/2026","m":98296,"d":"Por pagar S/ 92,903 tras imputar S/ 5,393"},{"f":"31/12/2026","m":98296},{"f":"30/04/2027","m":98296}],"pat":["31/08","31/12","30/04"],"plazo":"5 años desde la suscripción","garM":29488.8,"fuente":"Contrato N° 020-2026-R (Anexo 04 / cláusulas de plazo y garantía); montos sin IGV","xl":{"rc":[[18522,"28/08/2026"]],"ra":[[98296,"31/08/2026"]],"saldo":196592,"est":"PENDIENTE","sup":2948.88,"supv":"GFC","pts":11}},"022-2026-R":{"emp":"VIAEXPRESS ASOCIADOS S.A.C.","fs":"31/08/2026","ra":89998,"rc":5335,"gar":"Depósito en garantía","rcPag":[{"f":"04/08/2026","m":5335,"st":"P"}],"cuotas":[{"f":"30/10/2026","m":29999.34},{"f":"30/12/2026","m":29999.33},{"f":"26/02/2027","m":29999.33}],"pat":["30/10","30/12","26/02"],"plazo":"5 años desde la suscripción","garM":8999.8,"fuente":"Contrato N° 022-2026-R (Anexo 04 / cláusulas de plazo y garantía); montos sin IGV","xl":{"rc":[[5335,"27/07/2026"]],"ra":[],"saldo":89998,"est":"PENDIENTE","sup":899.98,"supv":"GFC","pts":9}},"023-2026-R":{"emp":"INCA CHANNEL S.A.C.","fs":"02/09/2026","ra":85483,"rc":8360,"gar":"Depósito en garantía","rcPag":[{"f":"31/07/2026","m":8360,"st":"P"}],"cuotas":[{"f":"31/10/2026","m":28494.34},{"f":"31/03/2027","m":28494.33},{"f":"31/07/2027","m":28494.33}],"pat":["31/10","31/03","31/07"],"plazo":"5 años desde la suscripción","garM":8548.3,"fuente":"Contrato N° 023-2026-R (Anexo 04 / cláusulas de plazo y garantía); montos sin IGV","xl":{"rc":[[8360,"31/07/2026"]],"ra":[],"saldo":85483,"est":"PENDIENTE","sup":854.83,"supv":"GFC","pts":5}},"025-2026-R":{"emp":"PRODUCCION Y MANTENIMIENTO DEL PERU S.A.C.","fs":"10/09/2026","ra":286408,"rc":22362,"gar":"Depósito en garantía","rcPag":[{"f":"30/06/2025","m":32785,"st":"P","d":"Pagó S/ 32,785; recalculada a S/ 22,362 por 20 EPE, saldo a favor de S/ 10,423 imputado a la cuota 1"}],"cuotas":[{"f":"07/12/2026","m":95469.34,"d":"Por pagar S/ 85,046.34 tras imputar S/ 10,423"},{"f":"08/03/2027","m":95469.33},{"f":"07/06/2027","m":95469.33}],"pat":["07/12","08/03","07/06"],"nota":"El control de pagos consigna vencimientos 07/09, 31/10 y 31/12/2026 y 6 puntos; el contrato fija 07/12/2026, 08/03/2027 y 07/06/2027 para 20 EPE. Se usan las fechas del contrato.","plazo":"5 años desde la suscripción","garM":28640.8,"fuente":"Contrato N° 025-2026-R (Anexo 04 / cláusulas de plazo y garantía); montos sin IGV","xl":{"rc":[[22362,"30/06/2025"]],"ra":[[10423,"07/09/2026"]],"saldo":275985,"est":"PENDIENTE","sup":2864.08,"supv":"GFC","pts":6}},"026-2026-R":{"emp":"SORTIE S.A.C.","fs":"25/09/2026","ra":13200,"rc":0,"gar":"Depósito en garantía","rcPag":[],"rcNota":"Exonerada: los EPE cuentan con autorizaciones previas (Resoluciones N° 2330-2018 y N° 652-2017).","cuotas":[{"f":"09/07/2025","m":5280,"st":"P"},{"f":"30/11/2026","m":3960},{"f":"30/12/2026","m":3960}],"pat":["09/07","30/11","30/12"],"p2":"09/07/2027","plazo":"5 años desde la suscripción","garM":1320.0,"fuente":"Contrato N° 026-2026-R (Anexo 04 / cláusulas de plazo y garantía); montos sin IGV"},"012-2026-R":{"emp":"FISICOS Y GRAFICOS PUBLICITARIOS S.A.C.","fs":"14/07/2026","ra":339867,"rc":28050,"gar":"Depósito en garantía","rcPag":[{"f":"16/06/2026","m":28050,"st":"P"}],"cuotas":[{"f":"31/08/2026","m":113289},{"f":"31/10/2026","m":113289},{"f":"31/12/2026","m":113289}],"pat":["31/08","31/10","31/12"],"plazo":"5 años desde la suscripción","garM":33986.7,"fuente":"Contrato N° 012-2026-R (Anexo 04 / cláusulas de plazo y garantía); montos sin IGV","xl":{"rc":[[28050,"15/06/2026"]],"ra":[[113289,"31/08/2026"]],"saldo":226578,"est":"PENDIENTE","sup":3398.67,"supv":"GFC","pts":13}},"013-2026-R":{"emp":"ABRAHAN DIONICIO SANDOVAL PRADO","fs":"16/07/2026","ra":9240,"rc":3050,"gar":"Depósito en garantía","rcPag":[{"f":"08/08/2025","m":3050,"st":"P"}],"cuotas":[{"f":"26/06/2026","m":9240,"st":"P","d":"Pago único"}],"pat":["16/06"],"nota":"Persona natural. La retribución figura en el Anexo 03.","plazo":"5 años desde la suscripción","garM":924.0,"fuente":"Contrato N° 013-2026-R (Anexo 04 / cláusulas de plazo y garantía); montos sin IGV","xl":{"rc":[[3050,"06/08/2025"]],"ra":[[9240,"26/06/2026"]],"saldo":0,"est":"COMPLETO","sup":92.4,"supv":"GFC","pts":3}},"014-2026-R":{"emp":"IMPACTO MEDIA S.A.C.","fs":"17/07/2026","ra":37356,"rc":2922,"gar":"Depósito en garantía","rcPag":[{"f":"19/06/2025","m":1798,"st":"P"},{"f":"05/12/2025","m":1124,"st":"P"}],"cuotas":[{"f":"31/07/2026","m":12452},{"f":"30/09/2026","m":12452},{"f":"31/12/2026","m":12452}],"pat":["31/07","30/09","31/12"],"nota":"El contrato consigna la razón social \"IMPACTO MEDIA PERÚ S.A.C.\".","plazo":"5 años desde la suscripción","garM":3735.6,"fuente":"Contrato N° 014-2026-R (Anexo 04 / cláusulas de plazo y garantía); montos sin IGV","xl":{"rc":[[1798,"12/06/2025"],[1124,"04/12/2025"]],"ra":[[12452,"31/07/2026"],[12452,"30/09/2026"]],"saldo":12452,"est":"PENDIENTE","sup":373.56,"supv":"GFC","pts":2}},"016-2026-R":{"emp":"BRASIL PUBLICIDAD EXTERIOR S.A.C.","fs":"20/07/2026","ra":61644,"rc":3933,"gar":"Depósito en garantía","rcPag":[{"f":"","m":3933,"st":"P","d":"Cancelada; saldo a favor de S/ 786 imputado a la retribución anual"}],"cuotas":[{"f":"30/09/2026","m":20548,"d":"Por pagar S/ 19,762 tras imputar S/ 786"},{"f":"30/11/2026","m":20548},{"f":"31/01/2027","m":20548}],"pat":["30/09","30/11","31/01"],"plazo":"5 años desde la suscripción","garM":6164.4,"fuente":"Contrato N° 016-2026-R (Anexo 04 / cláusulas de plazo y garantía); montos sin IGV","xl":{"rc":[[3933,"05/06/2025"]],"ra":[[20548,"30/09/2026"]],"saldo":41096,"est":"PENDIENTE","sup":616.44,"supv":"GFC","pts":3}},"021-2026-R":{"emp":"ILUMINITY S.A.C.","fs":"28/08/2026","ra":390456,"rc":15264,"gar":"Depósito en garantía","rcPag":[{"f":"29/05/2025","m":17061,"st":"P","d":"Pagó S/ 17,061; saldo a favor de S/ 1,797 imputado a la cuota 1"}],"cuotas":[{"f":"31/08/2026","m":130152,"d":"Por pagar S/ 128,355 tras imputar S/ 1,797"},{"f":"31/12/2026","m":130152},{"f":"30/04/2027","m":130152}],"pat":["31/08","31/12","30/04"],"plazo":"5 años desde la suscripción","garM":39045.6,"fuente":"Contrato N° 021-2026-R (Anexo 04 / cláusulas de plazo y garantía); montos sin IGV","xl":{"rc":[[15264,"29/05/2025"]],"ra":[[130152,"31/08/2026"]],"saldo":260304,"est":"PENDIENTE","sup":3904.56,"supv":"GFC","pts":14}},"024-2026-R":{"emp":"PUBLICIDAD CAPI S.A.C.","fs":"07/09/2026","ra":144408,"rc":12760,"gar":"Depósito en garantía","rcPag":[{"f":"22/07/2026","m":12760,"st":"P"}],"cuotas":[{"f":"07/09/2026","m":48136},{"f":"31/10/2026","m":48136},{"f":"31/12/2026","m":48136}],"pat":["31/08","31/10","31/12"],"plazo":"5 años desde la suscripción","garM":14440.8,"fuente":"Contrato N° 024-2026-R (Anexo 04 / cláusulas de plazo y garantía); montos sin IGV","xl":{"rc":[[12760,"22/07/2026"]],"ra":[],"saldo":144408,"est":"PENDIENTE","sup":1444.08,"supv":"GFC","pts":6}},"027-2026-R":{"emp":"LA COBERTURA EXTERIOR S.A.C.","fs":"09/10/2026","ra":237283,"rc":33159,"gar":"Depósito en garantía","rcPag":[{"f":"17/09/2026","m":11053,"st":"P","d":"Cuota 1"},{"f":"30/11/2026","m":11053,"d":"Cuota 2"},{"f":"30/12/2026","m":11053,"d":"Cuota 3"}],"cuotas":[{"f":"30/11/2026","m":79094.33},{"f":"31/12/2026","m":79094.33},{"f":"31/03/2027","m":79094.34}],"pat":["30/11","31/12","31/03"],"plazo":"5 años desde la suscripción","garM":23728.3,"fuente":"Contrato N° 027-2026-R (Anexo 04 / cláusulas de plazo y garantía); montos sin IGV"}};
 window.EPE_CONTRATOS_NU = {"001-2026-NU":{"emp":"PANELES NAPSA S.R.L.","fs":"26/05/2026","cond":"PUNTOS NUEVOS","ra":118352,"c":[[118352,"26/05/2027"],[0,""],[0,""]],"saldo":0,"est":"COMPLETO","sup":1183.52,"supv":"INVERMET / GFC"},"002-2026-NU":{"emp":"ILUMINITY S.A.C.","fs":"29/05/2026","cond":"PUNTOS NUEVOS","ra":1011481,"c":[[337227.77,"20/05/2026"],[337126.62,"21/08/2026"],[0,"21/11/2026"]],"saldo":337126.61,"est":"PENDIENTE","sup":10114.81,"supv":"INVERMET / GFC"},"003-2026-UN":{"emp":"PRODUCCION Y MANTENIMIENTO DEL PERU S.A.C. (PMP)","fs":"01/06/2026","cond":"PUNTOS NUEVOS","ra":1034342,"c":[[344849.62,"20/05/2026"],[344746.19,"20/08/2026"],[0,"20/11/2026"]],"saldo":344746.19,"est":"PENDIENTE","sup":10343.42,"supv":"INVERMET / GFC"}};
+window.EPE_PROYECTOS = [{"id":"pte-nuevo","n":"Pte. Nuevo \u2013 Norte y Sur","t":"\u00c1rea de proyecto","src":"Area - Pte. Nuevo Norte y Sur.kmz","k":"pol","g":[[-76.9956016,-12.0289326],[-76.9962886,-12.0287108],[-76.9973288,-12.0284148],[-76.9978565,-12.0284862],[-76.998546,-12.0286361],[-76.9992586,-12.028781],[-76.9999201,-12.0289603],[-76.9999466,-12.0292586],[-77.0005348,-12.0298671],[-77.003717,-12.0311239],[-77.0050885,-12.0316391],[-77.0047792,-12.0322035],[-77.003715,-12.0317307],[-77.0017239,-12.031037],[-77.00069,-12.0306849],[-77.0001646,-12.0305842],[-76.9992699,-12.030272],[-76.9984427,-12.0299409],[-76.997758,-12.0296588],[-76.9973108,-12.0295465],[-76.9966744,-12.0294934],[-76.9961749,-12.0295736],[-76.9957862,-12.0297281],[-76.995325,-12.0299861],[-76.9950175,-12.0291921]]}];
 window.EDIT_PIN_SHA256 = "2cd52d874bc8458e88f2553803a42f111ea724b5722635015b35dee0fa14d6c6";
 </script>
 <script>
@@ -1522,6 +1604,7 @@ function passes(o, skip){
   if(skip!=='bbox' && state.bbox && !state.bbox.contains([o.lat,o.lon])) return false;
   if(skip!=='via' && state.via && !(o.vd<=NEAR_M && SVM[o.vi] && SVM[o.vi].n===state.via)) return false;
   for(const k of ['emp','dd','con']) if(k!==skip && state[k] && o[k]!==state[k]) return false;
+  if(skip!=='proj' && state.proj && !projPass(o)) return false;
   return true;
 }
 function applyFilters(opts={}){
@@ -2052,6 +2135,7 @@ function ctxLegend(){
     h += '<div class="lsec"><b>Sistema Vial Metropolitano</b><ul class="lines">'+[1,2,3,4,5].map(c=>'<li><i class="ln" style="border-top-color:'+cssVar('--v'+c)+';border-top-width:'+Math.max(2,svmWeight(c,14))+'px"></i><span>'+JER[c]+'</span><em></em></li>').join('')+'</ul></div>';
   }
   if($('#ly-chl') && $('#ly-chl').checked && CHL.length) h += '<div class="lsec"><ul><li><i class="ar"></i><span>Centro Histórico de Lima</span><em></em></li></ul></div>';
+  if($('#ly-proj') && $('#ly-proj').checked && PROJ.some(p=>p.on!==false)) h += '<div class="lsec"><ul><li><i class="ar" style="border:2px solid var(--proj);background:rgba(11,143,127,.25)"></i><span>Proyectos de inversión</span><em></em></li></ul></div>';
   return h;
 }
 function viaRows(f){
@@ -2231,6 +2315,7 @@ function activeChips(){
   ['emp','dd','con'].forEach(k=>{ if(state[k]) out.push([k, state[k], FIELD_LABELS[k]+': '+(k==='con'?state[k]:dashFull(k,state[k]))]); });
   if(state.via) out.push(['via','', 'Vía: '+title(state.via)]);
   if(state.bbox) out.push(['bbox','', 'Área visible del mapa']);
+  if(state.proj){ const p = PROJ.find(x=>x.id===state.proj.id); if(p) out.push(['proj','', 'Proyecto: '+p.n+(state.proj.r?' (≤ '+state.proj.r+' m)':' (dentro)')]); }
   return out;
 }
 function chipsHTML(){
@@ -2652,15 +2737,161 @@ $('#exportKmz').addEventListener('click', async ()=>{
 });
 $('#editExit').addEventListener('click', ()=>setEdit(false));
 
+/* ---------- Proyectos de inversión ---------- */
+const PJ_KEY = 'epe.proj';
+var PROJ = [];
+const projLayer = L.layerGroup();
+const PJ_R = [0, 100, 300, 500, 1000];
+function pjLoadLocal(){ try{ return JSON.parse(localStorage.getItem(PJ_KEY)||'[]'); }catch(e){ return []; } }
+function pjSaveLocal(){ try{ localStorage.setItem(PJ_KEY, JSON.stringify(PROJ.filter(p=>p.local).map(p=>({id:p.id, n:p.n, t:p.t, src:p.src, g:p.g, k:p.k, local:true})))); }catch(e){} }
+function inRing(lon, lat, ring){ let ins = false; for(let i=0,j=ring.length-1;i<ring.length;j=i++){ const xi=ring[i][0], yi=ring[i][1], xj=ring[j][0], yj=ring[j][1]; if(((yi>lat)!==(yj>lat)) && (lon < (xj-xi)*(lat-yi)/(yj-yi)+xi)) ins = !ins; } return ins; }
+function pjMetrics(p){
+  const g = p.g, P = g.map(c=>mxy(c[0], c[1]));
+  let a = 0, per = 0, cx = 0, cy = 0;
+  if(p.k==='pol' && g.length>2){
+    for(let i=0,j=P.length-1;i<P.length;j=i++){ const f = P[j][0]*P[i][1]-P[i][0]*P[j][1]; a += f; cx += (P[j][0]+P[i][0])*f; cy += (P[j][1]+P[i][1])*f; per += Math.hypot(P[i][0]-P[j][0], P[i][1]-P[j][1]); }
+    a /= 2; cx /= (6*a); cy /= (6*a); a = Math.abs(a);
+  } else { P.forEach((q,i)=>{ cx += q[0]; cy += q[1]; if(i) per += Math.hypot(q[0]-P[i-1][0], q[1]-P[i-1][1]); }); cx /= P.length; cy /= P.length; }
+  const k = mxy(1,1); p.c = [cx/k[0], cy/k[1]]; p.area = a; p.per = per; p.P = P;
+  // Distancia de cada EPE al proyecto (0 si está dentro del polígono)
+  p.d = new Map();
+  DATA.forEach(o=>{
+    if(p.k==='pol' && inRing(o.lon, o.lat, g)){ p.d.set(o.id, 0); return; }
+    const q = mxy(o.lon, o.lat); let m = Infinity;
+    if(P.length===1) m = Math.hypot(q[0]-P[0][0], q[1]-P[0][1]);
+    for(let i=1;i<P.length;i++) m = Math.min(m, segM(q, P[i-1], P[i]));
+    if(p.k==='pol') m = Math.min(m, segM(q, P[P.length-1], P[0]));
+    p.d.set(o.id, m);
+  });
+  // Distritos que toca
+  const pts = g.concat([p.c]), dd = new Set();
+  (window.LIMA_DIST||{features:[]}).features.forEach(f=>{
+    const polys = f.geometry.type==='Polygon' ? [f.geometry.coordinates] : f.geometry.coordinates;
+    if(pts.some(c=>polys.some(pl=>inRing(c[0], c[1], pl[0])))) dd.add(f.properties.n);
+  });
+  p.dd = [...dd];
+}
+function segM(P, A, B){ const dx = B[0]-A[0], dy = B[1]-A[1], L2 = dx*dx+dy*dy; const t = L2 ? Math.max(0, Math.min(1, ((P[0]-A[0])*dx+(P[1]-A[1])*dy)/L2)) : 0; return Math.hypot(P[0]-(A[0]+t*dx), P[1]-(A[1]+t*dy)); }
+function pjNear(p, r){ return DATA.filter(o=>p.d.get(o.id) <= r + (r?0:.01)); }
+function projPass(o){ const p = PROJ.find(x=>x.id===state.proj.id); return !p || p.d.get(o.id) <= state.proj.r + .01; }
+function pjIcon(p){ return L.divIcon({className:'pjpin', html:'<span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-4 7 4v13M9 21v-6h6v6"/></svg></span>', iconSize:[30,38], iconAnchor:[15,36], popupAnchor:[0,-34], tooltipAnchor:[12,-22]}); }
+function drawProjects(){
+  projLayer.clearLayers();
+  PROJ.forEach(p=>{
+    p.on = p.on !== false;
+    if(!p.on) return;
+    const col = cssVar('--proj');
+    const ll = p.g.map(c=>[c[1], c[0]]);
+    let shape = null;
+    if(p.k==='pol') shape = L.polygon(ll, {renderer:canvas, color:col, weight:2.5, fillColor:col, fillOpacity:.18});
+    else if(p.k==='lin') shape = L.polyline(ll, {renderer:canvas, color:col, weight:4});
+    if(shape){ shape.on('click', e=>{ L.DomEvent.stop(e); pjOpen(p, e.latlng); }); shape.bindTooltip(esc(p.n), {sticky:true, className:'tip'}); projLayer.addLayer(shape); }
+    const mk = L.marker([p.c[1], p.c[0]], {icon:pjIcon(p), riseOnHover:true, keyboard:true, title:p.n});
+    mk.bindTooltip('<b>'+esc(p.n)+'</b><br><span>Proyecto de inversión</span>', {permanent:true, direction:'right', className:'pjlab'});
+    mk.on('click', ()=>pjOpen(p));
+    projLayer.addLayer(mk);
+  });
+  if($('#ly-proj').checked) projLayer.addTo(map); else projLayer.remove();
+  markersFront(); renderProjList(); renderLyState(); renderLegend();
+}
+function pjOpen(p, at){
+  const near = PJ_R.map(r=>[r, pjNear(p, r)]);
+  const ring = near.find(n=>n[0]===300)[1];
+  const emp = new Set(ring.map(o=>o.emp)), con = new Set(ring.map(o=>o.con).filter(c=>c && c!=='SIN CONTRATO'));
+  const tc = {}; ring.forEach(o=>{ tc[o.tip]=(tc[o.tip]||0)+1; });
+  const html = '<div class="pop pjpop"><h5>'+esc(p.n)+'</h5><div class="sub">Proyecto de inversión'+(p.t?' · '+esc(p.t):'')+(p.local?' · cargado en este navegador':'')+'</div>'+
+    '<dl class="kv">'+(p.area?'<dt>Área</dt><dd>'+fmt(p.area/1e4,2)+' ha ('+fmtInt(Math.round(p.area))+' m²)</dd>':'')+(p.per?'<dt>'+(p.k==='pol'?'Perímetro':'Longitud')+'</dt><dd>'+fmtInt(Math.round(p.per))+' m</dd>':'')+
+    '<dt>Distrito(s)</dt><dd>'+(p.dd.length?esc(p.dd.map(title).join(', ')):'—')+'</dd>'+
+    '<dt>Centro</dt><dd class="mono">'+p.c[1].toFixed(5)+', '+p.c[0].toFixed(5)+'</dd>'+
+    '<dt>Entorno de 300 m</dt><dd>'+ring.length+' EPE · '+emp.size+' empresa'+(emp.size===1?'':'s')+(con.size?' · '+con.size+' contrato'+(con.size===1?'':'s'):'')+'</dd>'+
+    (ring.length?'<dt>Tipologías</dt><dd>'+Object.keys(tc).sort((a,b)=>tc[b]-tc[a]).map(t=>esc(title(t))+' ('+tc[t]+')').join(', ')+'</dd>':'')+
+    '</dl><div class="pjr"><span>EPE en el entorno · clic para filtrar</span>'+near.map(([r, l])=>'<button type="button" class="chip'+(state.proj&&state.proj.id===p.id&&state.proj.r===r?' on':'')+'" data-act="pj-filter" data-v="'+esc(p.id)+'" data-r="'+r+'"'+(l.length?'':' disabled')+'>'+(r?'≤ '+fmtInt(r)+' m':(p.k==='pol'?'Dentro':'Sobre'))+' <b>'+l.length+'</b></button>').join('')+'</div>'+
+    (p.src?'<p class="note" style="margin:6px 0 0">Fuente: '+esc(p.src)+'</p>':'')+
+    '<div class="pbtns"><button class="btn" type="button" data-act="pj-fit" data-v="'+esc(p.id)+'">Encuadrar</button><a class="btn" href="https://www.google.com/maps/search/?api=1&query='+p.c[1]+','+p.c[0]+'" target="_blank" rel="noopener">Google Maps</a>'+(p.local?'<button class="btn" type="button" data-act="pj-del" data-v="'+esc(p.id)+'">Quitar</button>':'')+'</div></div>';
+  L.popup({maxWidth:360, minWidth:300, autoPanPaddingTopLeft:[20,70], autoPanPaddingBottomRight:[$('#lyPanel').hidden?20:360,60]}).setLatLng(at || [p.c[1], p.c[0]]).setContent(html).openOn(map);
+}
+function pjFit(p){ const b = L.latLngBounds(p.g.map(c=>[c[1],c[0]])); map.flyToBounds(b.pad(.6), {maxZoom:17, duration:.6}); }
+document.addEventListener('click', e=>{
+  const b = e.target.closest('[data-act^="pj-"]'); if(!b) return;
+  const p = PROJ.find(x=>x.id===b.dataset.v); if(!p) return;
+  const act = b.dataset.act;
+  if(act==='pj-fit'){ pjFit(p); }
+  else if(act==='pj-filter'){ const r = +b.dataset.r; state.proj = (state.proj && state.proj.id===p.id && state.proj.r===r) ? null : {id:p.id, r}; applyFilters({fit:false}); map.closePopup(); if(state.proj){ pjFit(p); toast('Mostrando los EPE '+(r?'a ≤ '+r+' m de ':'dentro de ')+p.n); } }
+  else if(act==='pj-open'){ if(innerWidth<900) setLyPanel(false); if(!p.on){ p.on = true; drawProjects(); } if(!$('#ly-proj').checked){ $('#ly-proj').checked = true; drawProjects(); } pjFit(p); setTimeout(()=>pjOpen(p), 650); }
+  else if(act==='pj-del'){ PROJ = PROJ.filter(x=>x!==p); if(state.proj && state.proj.id===p.id){ state.proj = null; applyFilters({fit:false}); } pjSaveLocal(); map.closePopup(); drawProjects(); toast('Se quitó el proyecto '+p.n+'.'); }
+});
+function renderProjList(){
+  const el = $('#lyProj'); if(!el) return;
+  el.innerHTML = PROJ.length ? PROJ.map(p=>'<div class="pjrow'+(p.on?' on':'')+'"><label><input type="checkbox" data-pj="'+esc(p.id)+'"'+(p.on?' checked':'')+'><i></i><span>'+esc(p.n)+'<small>'+(p.area?fmt(p.area/1e4,1)+' ha · ':'')+pjNear(p,300).length+' EPE a ≤ 300 m'+(p.local?' · local':'')+'</small></span></label><button type="button" class="ib" data-act="pj-open" data-v="'+esc(p.id)+'" title="Ver ficha y ubicar" aria-label="Ver ficha de '+esc(p.n)+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v.01M11 12h1v5h1"/></svg></button></div>').join('') : '<p class="note">Sin proyectos cargados.</p>';
+}
+document.addEventListener('change', e=>{
+  const c = e.target.closest('[data-pj]'); if(!c) return;
+  const p = PROJ.find(x=>x.id===c.dataset.pj); if(!p) return;
+  p.on = c.checked; if(p.on && !$('#ly-proj').checked) $('#ly-proj').checked = true; drawProjects();
+});
+async function pjImport(file){
+  let txt;
+  if(/\.kml$/i.test(file.name)) txt = await file.text();
+  else { if(!window.JSZip) throw new Error('El lector de KMZ no está disponible en esta vista. Prueba con un archivo .kml.'); const z = await JSZip.loadAsync(file); const k = Object.keys(z.files).find(n=>/\.kml$/i.test(n)); if(!k) throw new Error('El archivo no contiene un documento KML.'); txt = await z.file(k).async('text'); }
+  const doc = new DOMParser().parseFromString(txt, 'application/xml');
+  if(doc.querySelector('parsererror')) throw new Error('El KML tiene errores y no se pudo leer.');
+  const docName = ((doc.querySelector('Document > name')||{}).textContent||file.name).replace(/\.km[lz]$/i,'').trim();
+  const parse = s => s.trim().split(/\s+/).map(t=>t.split(',').map(Number)).filter(c=>isFinite(c[0])&&isFinite(c[1])).map(c=>[c[0], c[1]]);
+  const added = [];
+  [...doc.getElementsByTagName('Placemark')].forEach((pm, i)=>{
+    const nm = ((pm.getElementsByTagName('name')[0]||{}).textContent||'').trim() || docName;
+    const pol = pm.getElementsByTagName('Polygon')[0], lin = pm.getElementsByTagName('LineString')[0], pt = pm.getElementsByTagName('Point')[0];
+    let k, g;
+    if(pol){ k = 'pol'; g = parse((pol.querySelector('outerBoundaryIs coordinates')||pol.getElementsByTagName('coordinates')[0]).textContent); if(g.length>3 && g[0][0]===g[g.length-1][0] && g[0][1]===g[g.length-1][1]) g.pop(); }
+    else if(lin){ k = 'lin'; g = parse(lin.getElementsByTagName('coordinates')[0].textContent); }
+    else if(pt){ k = 'pt'; g = parse(pt.getElementsByTagName('coordinates')[0].textContent).slice(0,1); }
+    if(!g || !g.length) return;
+    const p = {id:'loc-'+Date.now().toString(36)+'-'+i, n:nm===docName||!nm?docName:(docName&&docName!==nm?nm+' ('+docName+')':nm), t:k==='pol'?'Área de proyecto':k==='lin'?'Trazo de proyecto':'Ubicación de proyecto', src:file.name, g, k, local:true};
+    pjMetrics(p); PROJ.push(p); added.push(p);
+  });
+  if(!added.length) throw new Error('No se encontraron polígonos, líneas ni puntos en el archivo.');
+  pjSaveLocal(); $('#ly-proj').checked = true; drawProjects(); pjFit(added[0]);
+  toast('Se agregó '+added.length+' proyecto'+(added.length===1?'':'s')+'. Se guarda solo en este navegador.');
+}
+function buildProjects(){
+  PROJ = (window.EPE_PROYECTOS||[]).map(p=>Object.assign({}, p)).concat(pjLoadLocal());
+  PROJ.forEach(pjMetrics);
+  drawProjects();
+}
+$('#ly-proj').addEventListener('change', drawProjects);
+$('#pjFile').addEventListener('change', async e=>{ const f = e.target.files[0]; e.target.value=''; if(!f) return; try{ await pjImport(f); }catch(err){ toast(err.message); } });
+
+/* ---------- Panel de capas ---------- */
+const LY = [['ly-pts','EPE'],['ly-svm','Vías SVM'],['ly-dist','Distritos'],['ly-chl','Centro Histórico'],['ly-proj','Proyectos'],['ly-choro','Densidad'],['ly-heat','Calor'],['ly-ids','Códigos']];
+function renderLyState(){
+  const on = LY.filter(([id])=>$('#'+id) && $('#'+id).checked);
+  $('#lyBadge').textContent = on.length;
+  $('#lyChips').innerHTML = on.map(([id, l])=>'<button type="button" class="chip" aria-pressed="true" data-lyoff="'+id+'" title="Ocultar '+esc(l)+'">'+esc(l)+' <span class="n">×</span></button>').join('') || '<span class="note" style="margin:0">Ninguna capa activa.</span>';
+  document.querySelectorAll('.lyr').forEach(r=>{ const i = r.querySelector('input'); r.classList.toggle('on', !!(i && i.checked)); });
+  $('#lyCount').textContent = on.length+' de '+LY.length+' activas';
+}
+function setLy(id, v){ const i = $('#'+id); if(!i || i.checked===v) return; i.checked = v; i.dispatchEvent(new Event('change', {bubbles:true})); }
+document.addEventListener('change', e=>{ if(e.target.id && e.target.id.startsWith('ly-') || e.target.dataset && e.target.dataset.pj) setTimeout(renderLyState, 0); });
+document.addEventListener('click', e=>{
+  const off = e.target.closest('[data-lyoff]'); if(off){ setLy(off.dataset.lyoff, false); renderLyState(); return; }
+  const all = e.target.closest('[data-lyall]'); if(all){ const v = all.dataset.lyall==='1'; LY.forEach(([id])=>{ if(id==='ly-heat'||id==='ly-ids'||id==='ly-choro') { if(!v) setLy(id,false); } else setLy(id, v); }); renderLyState(); }
+});
+function setLyPanel(open){ $('#lyPanel').hidden = !open; $('#zLayers').setAttribute('aria-expanded', open); if(open){ $('#gkeyCard').hidden = true; } }
+$('#zLayers').addEventListener('click', ()=>setLyPanel($('#lyPanel').hidden));
+$('#lyClose').addEventListener('click', ()=>setLyPanel(false));
+$('#lyOpenSide').addEventListener('click', ()=>{ setLyPanel(true); if(innerWidth<900) $('#side').classList.remove('open'); });
+document.addEventListener('keydown', e=>{ if(e.key==='Escape' && !$('#lyPanel').hidden) setLyPanel(false); });
+
 /* ---------- Inicio ---------- */
 try{ const c = localStorage.getItem('epe.colorBy'); if(c && FIELD_LABELS[c]) state.colorBy = c; }catch(e){}
 byId = new Map(DATA.map(o=>[o.id,o]));
-buildEmpCodes(); buildDomains(); readPalette(); buildMarkers(); drawContextLayers(); setBase(gKey() ? 'gsat' : 'hyb'); applyFilters({fit:false});
+buildEmpCodes(); buildDomains(); readPalette(); buildMarkers(); drawContextLayers(); buildProjects(); setBase(gKey() ? 'gsat' : 'hyb'); applyFilters({fit:false});
 map.fitBounds(L.latLngBounds(DATA.map(o=>[o.lat,o.lon])), {padding:[30,30]});
 const h = decodeURIComponent((location.hash||'').slice(1));
 if(h && byId.has(h)) setTimeout(()=>select(h), 300);
 markersFront();
 loadPublishedEdits();
+renderLyState();
 window.EPE_VIEWER = {select, state, map, get data(){ return DATA; }};
 })();
 
