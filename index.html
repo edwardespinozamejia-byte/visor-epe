@@ -1336,6 +1336,10 @@ i.hatch,.dxr .tr i.hatch{background:repeating-linear-gradient(45deg,#f0b400 0 3p
 .dxr.inc{grid-template-columns:minmax(0,45%) 1fr auto}
 .dxr.inc .lb{cursor:default;text-decoration:none!important;color:var(--ink)!important}
 .dxt.info b{font-size:22px;white-space:nowrap}
+.sw-zon{width:16px;height:14px;background:linear-gradient(90deg,#f2c94c 33%,#e0533d 33% 66%,#3aa655 66%);border-radius:2px}
+.zonkey{display:grid;grid-template-columns:1fr 1fr;gap:3px 8px;font-size:11.5px;color:var(--muted);margin:-2px 0 8px 52px}
+.zonkey i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px;opacity:.8}
+.lyr:not(.on)+.zonkey{display:none}
 </style>
 
 <div id="app">
@@ -1442,6 +1446,7 @@ i.hatch,.dxr .tr i.hatch{background:repeating-linear-gradient(45deg,#f0b400 0 3p
                 <label class="lyr"><span class="lic"><i class="sw-svm"></i></span><span class="ltx"><b>Vías del SVM (IMP)</b><small>Sistema Vial Metropolitano</small></span><input type="checkbox" class="sw" id="ly-svm" checked></label><div class="svmkey" id="svmKey"></div>
                 <label class="lyr"><span class="lic"><i class="sw-dist"></i></span><span class="ltx"><b>Límites distritales</b><small>Lima Metropolitana y Callao</small></span><input type="checkbox" class="sw" id="ly-dist" checked></label>
                 <label class="lyr"><span class="lic"><i class="sw-chl"></i></span><span class="ltx"><b>Centro Histórico de Lima</b><small>Ámbito de gestión</small></span><input type="checkbox" class="sw" id="ly-chl" checked></label>
+                <label class="lyr"><span class="lic"><i class="sw-zon"></i></span><span class="ltx"><b>Zonificación urbana (IMP)</b><small>Vigente set. 2025 · entorno de 150 m de cada EPE</small></span><input type="checkbox" class="sw" id="ly-zon"></label><div class="zonkey"><span><i style="background:#f2c94c"></i>Residencial</span><span><i style="background:#e0533d"></i>Comercio</span><span><i style="background:#8e5ac8"></i>Industria</span><span><i style="background:#d6338c"></i>Salud (H)</span><span><i style="background:#2f6fd6"></i>Educación</span><span><i style="background:#3aa655"></i>Recreación (ZRP)</span><span><i style="background:#1d6b3a"></i>Protección / natural</span><span><i style="background:#c27c2c"></i>Reglamentación especial</span><span><i style="background:#9aa6b5"></i>Otros usos</span></div>
               </div>
               <div class="lyg"><h6>Análisis</h6>
                 <label class="lyr"><span class="lic"><i class="sw-choro"></i></span><span class="ltx"><b>Densidad por distrito</b><small>Color según EPE por distrito</small></span><input type="checkbox" class="sw" id="ly-choro"></label>
@@ -2071,7 +2076,7 @@ function dxSection(o){
   return '<div class="dxbox dx-'+c[0]+'"><div class="dxh"><span>'+c[1]+'</span><div><b>'+esc(DXL[o.dx]||'Sin evaluar')+'</b><small>Diagnóstico preliminar · sujeto a verificación técnica de la GPIP</small></div></div>'+
     (conf.length?'<div class="dxg"><h6>Incumplimientos que definen el color</h6><ul>'+conf.map(li).join('')+'</ul></div>':'')+
     (otros.length?'<ul class="dxplain">'+otros.map(x=>'<li>'+esc(x[1])+'</li>').join('')+'</ul>':'')+
-    (ver.length?'<div class="dxg ver"><h6>Por verificar en campo (no cambian el color)</h6><ul>'+ver.map(li).join('')+'</ul></div>':'')+
+    (ver.length?'<div class="dxg ver"><h6>Por verificar en campo (no cambian el color)</h6><ul>'+ver.map(li).join('')+'</ul>'+(ver.some(x=>/^59\.(8|13|14)$/.test(x[2]))?'<button type="button" class="btn" data-zonshow="'+esc(o.id)+'" style="margin-top:6px">Ver zonificación en el mapa</button>':'')+'</div>':'')+
     (d.o.length?'<div class="dxo"><b>Observaciones</b>'+d.o.map(x=>'<div>'+esc(x)+'</div>').join('')+'</div>':'')+'</div>';
 }
 function ordAlert(o){
@@ -3297,8 +3302,44 @@ function buildProjects(){
 $('#ly-proj').addEventListener('change', drawProjects);
 $('#pjFile').addEventListener('change', async e=>{ const f = e.target.files[0]; e.target.value=''; if(!f) return; try{ await pjImport(f); }catch(err){ toast(err.message); } });
 
+
+/* ---------- Capa de zonificación (IMP, set. 2025) ---------- */
+const ZG = [
+  ['RES','Residencial','#f2c94c', c=>/^(RD|ZD|VT|ZH)/.test(c)],
+  ['COM','Comercio','#e0533d', c=>/^(C[ZVM]|CH|CE|ZC)/.test(c)],
+  ['IND','Industria','#8e5ac8', c=>/^I[1-4E]/.test(c)],
+  ['SAL','Salud (H)','#d6338c', c=>/^H[1-4]/.test(c)],
+  ['EDU','Educación (E)','#2f6fd6', c=>/^E[1-4]?$|^E[1-4]-/.test(c)],
+  ['REC','Recreación pública (ZRP)','#3aa655', c=>/^ZRP/.test(c)],
+  ['PRO','Protección / área natural','#1d6b3a', c=>/^(ZPA|PTP|ANPM|RN|ZA|AP)/.test(c)],
+  ['ZRE','Reglamentación especial (ZRE)','#c27c2c', c=>/^ZRE|^ZTE/.test(c)],
+  ['OTR','Otros usos','#9aa6b5', c=>true]
+];
+const zGroup = c => ZG.find(g=>g[3](c||''));
+map.createPane('zon'); map.getPane('zon').style.zIndex = 401; map.getPane('zon').style.pointerEvents = 'none';
+const zonLayer = L.layerGroup(); let zonData = null, zonLoading = false;
+async function drawZon(){
+  if(!$('#ly-zon').checked){ zonLayer.remove(); renderLyState(); return; }
+  if(!zonData){
+    if(zonLoading) return; zonLoading = true; toast('Cargando zonificación…');
+    try{ zonData = await (await fetch('capas/zonificacion.json')).json(); }
+    catch(e){ zonLoading = false; $('#ly-zon').checked = false; toast('La zonificación solo está disponible en el visor publicado (GitHub).', 5000); renderLyState(); return; }
+    const rend = L.canvas({pane:'zon', padding:.3});
+    zonData.forEach(f=>{
+      const g = zGroup(f.c);
+      f.p.forEach(poly=>{
+        const pl = L.polygon(poly.map(r=>r.map(c=>[c[1],c[0]])), {pane:'zon', renderer:rend, color:g[2], weight:.8, opacity:.9, fillColor:g[2], fillOpacity:.32});
+        pl.bindTooltip('<b>'+esc(f.c)+'</b> · '+esc(title(f.n))+(([f.d,f.o].some(v=>v&&v!=='None'))?'<br><span>'+[f.d&&f.d!=='None'?esc(title(f.d)):'', f.o&&f.o!=='None'?'Ord. '+esc(f.o):''].filter(Boolean).join(' · ')+'</span>':''), {sticky:true, className:'tip'});
+        zonLayer.addLayer(pl);
+      });
+    });
+  }
+  if(zonData && !zonData._bb) zonData.forEach(f=>{ let a=[180,90,-180,-90]; f.p.forEach(pl=>pl[0].forEach(c=>{ a[0]=Math.min(a[0],c[0]); a[1]=Math.min(a[1],c[1]); a[2]=Math.max(a[2],c[0]); a[3]=Math.max(a[3],c[1]); })); f.bb=a; }), zonData._bb = true;
+  zonLayer.addTo(map); markersFront(); renderLyState();
+  if(map.getZoom() < 14) toast('Acerca el mapa para ver la zonificación con detalle. Se muestra el entorno de 150 m de cada EPE.', 4500);
+}
 /* ---------- Panel de capas ---------- */
-const LY = [['ly-ord','Distancias'],['ly-pts','EPE'],['ly-svm','Vías SVM'],['ly-dist','Distritos'],['ly-chl','Centro Histórico'],['ly-proj','Proyectos'],['ly-choro','Densidad'],['ly-heat','Calor'],['ly-ids','Códigos']];
+const LY = [['ly-ord','Distancias'],['ly-zon','Zonificación'],['ly-pts','EPE'],['ly-svm','Vías SVM'],['ly-dist','Distritos'],['ly-chl','Centro Histórico'],['ly-proj','Proyectos'],['ly-choro','Densidad'],['ly-heat','Calor'],['ly-ids','Códigos']];
 function renderLyState(){
   const on = LY.filter(([id])=>$('#'+id) && $('#'+id).checked);
   $('#lyBadge').textContent = on.length;
@@ -3320,6 +3361,11 @@ document.addEventListener('keydown', e=>{ if(e.key==='Escape' && !$('#lyPanel').
 
 $('#ly-ord').addEventListener('change', drawOrdLayer);
 afterFilter.push(()=>{ ORD_PAIRS = null; drawOrdLayer(); });
+$('#ly-zon').addEventListener('change', drawZon);
+function zonAt(ll){ if(!zonData || !$('#ly-zon').checked) return null; const x=ll.lng, y=ll.lat; return zonData.find(f=>f.bb && x>=f.bb[0]&&x<=f.bb[2]&&y>=f.bb[1]&&y<=f.bb[3] && f.p.some(pl=>inRing(x,y,pl[0]))); }
+const zonTip = L.tooltip({className:'tip', direction:'top', offset:[0,-8]});
+map.on('mousemove', e=>{ const f = zonAt(e.latlng); if(!f){ if(map.hasLayer(zonTip)) map.removeLayer(zonTip); return; } zonTip.setLatLng(e.latlng).setContent('<b>Zonificación '+esc(f.c)+'</b> · '+esc(title(f.n))+(([f.d,f.o].some(v=>v&&v!=='None'))?'<br><span>'+[f.d&&f.d!=='None'?esc(title(f.d)):'', f.o&&f.o!=='None'?'Ord. '+esc(f.o):''].filter(Boolean).join(' · ')+'</span>':'')); if(!map.hasLayer(zonTip)) zonTip.addTo(map); });
+document.addEventListener('click', e=>{ const b = e.target.closest('[data-zonshow]'); if(!b) return; const o = byId.get(b.dataset.zonshow); $('#ly-zon').checked = true; drawZon(); if(o) map.flyTo([o.lat,o.lon], 17, {duration:.6}); });
 /* ---------- Inicio ---------- */
 try{ const c = localStorage.getItem('epe.colorBy'); if(c && FIELD_LABELS[c]) state.colorBy = c; }catch(e){}
 byId = new Map(DATA.map(o=>[o.id,o]));
