@@ -2836,8 +2836,7 @@ function conRetribHTML(){
   const tile = (cls, val, lab, sub) => '<div class="card kc '+cls+'"><div><b>'+val+'</b><span>'+lab+'</span>'+(sub?'<span class="sub">'+sub+'</span>':'')+'</div></div>';
   const VENC = venc.length ? '<h5 style="margin-top:16px">Cuotas vencidas con saldo</h5>'+'<table class="ctab"><tbody>'+venc.sort((a,b)=>a.f-b.f).map(x=>'<tr><td class="mono">'+dStr(x.f)+'</td><td><span class="mono">'+esc(x.con)+'</span><div class="note">'+esc(shortEmp(x.emp))+'</div></td><td>'+esc(conLabel(x))+(x.st==='W'?' '+pill('bad','verificar'):'')+'</td><td class="num">'+fmt(x.sal)+'</td></tr>').join('')+'</tbody></table>' : '';
   const upcoming = items.filter(x=>x.f && x.f >= TODAY && (x.st==='F'||x.st==='A'||x.st==='R')).sort((a,b)=>a.f-b.f).slice(0,8);
-  return 
-    '<div class="ctiles">'+
+  return '<div class="ctiles">'+
       tile('', withData.length+' <small>/ '+rows.length+'</small>', 'Contratos de reordenamiento', rows.length-withData.length ? (rows.length-withData.length)+' sin PDF cargado' : 'Todos con contrato y cronograma')+
       tile('', 'S/ '+fmtInt(Math.round(ra)), 'Retribución anual (año 1)', 'Sin IGV')+
       tile('', 'S/ '+fmtInt(Math.round(rc)), 'Retribución por compensación', 'Sin IGV')+
